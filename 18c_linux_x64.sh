@@ -8,6 +8,7 @@ ORACLE_BASE=$ORACLE_APP_ROOT/oracle
 ORACLE_HOME=/opt/app/oracle/product/18.0.0/dbhome_1
 ORACLE_DB=/ora/db001
 ORACLE_SW=/home/oracle/LINUX.X64_180000_db_home.zip
+INST_ORACLE_SW_SHELL=/tmp/inst_ora_sw.sh
 
 #/etc/hosts configuration
 echo "`ip -f inet addr show $NIC | grep -Po 'inet \K[\d.]+'` `hostname`" >> /etc/hosts
@@ -154,7 +155,7 @@ export PATH=$ORACLE_HOME/bin:\$PATH
 export LD_LIBRARY_PATH=$ORACLE_HOME/lib:/lib:/usr/lib
 export CLASSPATH=$ORACLE_HOME/jlib:$ORACLE_HOME/rdbms/jlib" >> /home/$O_USER/.bash_profile
 
-# Unzip software.
+# Create a shell script to unzip and runInstaller
 echo "cd $ORACLE_HOME
 unzip -oq $ORACLE_SW
 
@@ -175,9 +176,15 @@ unzip -oq $ORACLE_SW
     oracle.install.db.OSKMDBA_GROUP=dba                                        \
     oracle.install.db.OSRACDBA_GROUP=dba                                       \
     SECURITY_UPDATES_VIA_MYORACLESUPPORT=false                                 \
-    DECLINE_SECURITY_UPDATES=true" > /tmp/inst_ora_db.sh
+    DECLINE_SECURITY_UPDATES=true" > $INST_ORACLE_SW_SHELL
 
+# Adding execute permission to all users
+chmod a+x $INST_ORACLE_SW_SHELL
 
+# unzip; runInstaller as oracle
+su - $O_USER -c $INST_ORACLE_SW_SHELL
 
-
+# execute last 2 scripts as root
+$ORACLE_APP_ROOT/oraInventory/orainstRoot.sh
+$ORACLE_HOME/root.sh
 
