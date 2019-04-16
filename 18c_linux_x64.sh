@@ -1,5 +1,10 @@
 #!/usr/bin/bash
 
+#
+# Tested CentOS 7
+#
+#
+
 NIC=ens33
 O_USER=oracle
 O_PASS=oracle123
@@ -186,11 +191,7 @@ chown oracle:oinstall $ORACLE_SW
 su - $O_USER -c $INST_ORACLE_SW_SHELL
 
 # execute last 2 scripts as root
-if [ $? = 0 ]; then
-  $ORACLE_APP_ROOT/oraInventory/orainstRoot.sh
-  $ORACLE_HOME/root.sh
-else
-  echo "Installation failed"
-fi
+$ORACLE_APP_ROOT/oraInventory/orainstRoot.sh
+$ORACLE_HOME/root.sh
 
 
