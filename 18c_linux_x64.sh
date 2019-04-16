@@ -154,10 +154,9 @@ export PATH=$ORACLE_HOME/bin:\$PATH
 export LD_LIBRARY_PATH=$ORACLE_HOME/lib:/lib:/usr/lib
 export CLASSPATH=$ORACLE_HOME/jlib:$ORACLE_HOME/rdbms/jlib" >> /home/$O_USER/.bash_profile
 
-
-#unzip
-cd ~
-unzip $ORACLE_SW
+# Unzip software.
+echo "cd $ORACLE_HOME
+unzip -oq $ORACLE_SW
 
 #runInstaller SILENT
 ./runInstaller -ignorePrereq -waitforcompletion -silent                        \
@@ -176,7 +175,9 @@ unzip $ORACLE_SW
     oracle.install.db.OSKMDBA_GROUP=dba                                        \
     oracle.install.db.OSRACDBA_GROUP=dba                                       \
     SECURITY_UPDATES_VIA_MYORACLESUPPORT=false                                 \
-    DECLINE_SECURITY_UPDATES=true
+    DECLINE_SECURITY_UPDATES=true" > /tmp/inst_ora_db.sh
+
+
 
 
 
