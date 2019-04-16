@@ -180,6 +180,7 @@ unzip -oq $ORACLE_SW
 
 # Adding execute permission to all users
 chmod a+x $INST_ORACLE_SW_SHELL
+chown oracle:oinstall $ORACLE_SW
 
 # unzip; runInstaller as oracle
 su - $O_USER -c $INST_ORACLE_SW_SHELL
