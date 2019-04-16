@@ -1,6 +1,8 @@
 #!/usr/bin/bash
 
 NIC=eth0
+O_USER=oracle
+O_PASS=oracle123
 
 #/etc/hosts configuration
 echo "`ip -f inet addr show $NIC | grep -Po 'inet \K[\d.]+'` `hostname`" >> /etc/hosts
@@ -82,4 +84,20 @@ yum install -y smartmontools
 yum install -y sysstat
 yum install -y targetcli
 yum install -y unixODBC
+
+#Create the new groups and users
+groupadd -g 54321 oinstall
+groupadd -g 54322 dba
+groupadd -g 54323 oper
+
+useradd -u 54321 -g oinstall -G dba,oper oracle
+
+#Specify oracle password
+passwd $O_USER <<EOF
+$O_PASS
+$O_PASS
+EOF
+
+
+
 
