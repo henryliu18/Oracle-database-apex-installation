@@ -140,18 +140,18 @@ export TMPDIR=\$TMP
 
 export ORACLE_HOSTNAME=`hostname`
 export ORACLE_UNQNAME=cdb1
-export ORACLE_BASE=\$ORACLE_BASE
-export ORACLE_HOME=\$ORACLE_HOME
-export ORA_INVENTORY=\$ORACLE_APP_ROOT/oraInventory
+export ORACLE_BASE=$ORACLE_BASE
+export ORACLE_HOME=$ORACLE_HOME
+export ORA_INVENTORY=$ORACLE_APP_ROOT/oraInventory
 export ORACLE_SID=cdb1
 export PDB_NAME=pdb1
-export DATA_DIR=\$ORACLE_DB
+export DATA_DIR=$ORACLE_DB
 
-export PATH=/usr/sbin:/usr/local/bin:\$PATH
-export PATH=\$ORACLE_HOME/bin:\$PATH
+export PATH=/usr/sbin:/usr/local/bin:$PATH
+export PATH=$ORACLE_HOME/bin:$PATH
 
-export LD_LIBRARY_PATH=\$ORACLE_HOME/lib:/lib:/usr/lib
-export CLASSPATH=\$ORACLE_HOME/jlib:\$ORACLE_HOME/rdbms/jlib" >> /home/$O_USER/.bash_profile
+export LD_LIBRARY_PATH=$ORACLE_HOME/lib:/lib:/usr/lib
+export CLASSPATH=$ORACLE_HOME/jlib:$ORACLE_HOME/rdbms/jlib" >> /home/$O_USER/.bash_profile
 
 
 
