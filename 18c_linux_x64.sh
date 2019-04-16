@@ -163,9 +163,9 @@ unzip -oq $ORACLE_SW
 ./runInstaller -ignorePrereq -waitforcompletion -silent                        \
     -responseFile ${ORACLE_HOME}/install/response/db_install.rsp               \
     oracle.install.option=INSTALL_DB_SWONLY                                    \
-    ORACLE_HOSTNAME=${ORACLE_HOSTNAME}                                         \
+    ORACLE_HOSTNAME=\${ORACLE_HOSTNAME}                                         \
     UNIX_GROUP_NAME=oinstall                                                   \
-    INVENTORY_LOCATION=${ORA_INVENTORY}                                        \
+    INVENTORY_LOCATION=\${ORA_INVENTORY}                                        \
     SELECTED_LANGUAGES=en,en_GB                                                \
     ORACLE_HOME=${ORACLE_HOME}                                                 \
     ORACLE_BASE=${ORACLE_BASE}                                                 \
