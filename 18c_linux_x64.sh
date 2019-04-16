@@ -1,9 +1,9 @@
 #!/usr/bin/bash
 
-IP=1.2.3.4
+NIC=eth0
 
 #/etc/hosts configuration
-echo "$IP `hostname`" >> /etc/hosts
+echo "`ip -f inet addr show $NIC | grep -Po 'inet \K[\d.]+'` `hostname`" >> /etc/hosts
 
 #Configuring the Kernel Parameter Settings
 echo "fs.file-max = 6815744
