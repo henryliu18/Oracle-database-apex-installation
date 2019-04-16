@@ -10,6 +10,8 @@ rm -rf /opt/app
 rm -rf /opt/ORCLfmap
 rm -rf /tmp/InstallActions*
 rm -rf /tmp/hsperfdata*
+rm -f /etc/oraInst.loc
+rm -f /etc/oratab
 
 userdel -r oracle
 
