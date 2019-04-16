@@ -3,6 +3,11 @@
 NIC=eth0
 O_USER=oracle
 O_PASS=oracle123
+ORACLE_APP_ROOT=/opt/app
+ORACLE_BASE=$ORACLE_APP_ROOT/oracle
+ORACLE_HOME=/opt/app/oracle/product/18.0.0/dbhome_1
+ORACLE_DB=/ora/db001
+
 
 #/etc/hosts configuration
 echo "`ip -f inet addr show $NIC | grep -Po 'inet \K[\d.]+'` `hostname`" >> /etc/hosts
@@ -97,6 +102,56 @@ passwd $O_USER <<EOF
 $O_PASS
 $O_PASS
 EOF
+
+#Set secure Linux to permissive
+echo "# This file controls the state of SELinux on the system.
+# SELINUX= can take one of these three values:
+#     enforcing - SELinux security policy is enforced.
+#     permissive - SELinux prints warnings instead of enforcing.
+#     disabled - No SELinux policy is loaded.
+#SELINUX=enforcing
+SELINUX=permissive
+# SELINUXTYPE= can take one of three two values:
+#     targeted - Targeted processes are protected,
+#     minimum - Modification of targeted policy. Only selected processes are protected.
+#     mls - Multi Level Security protection.
+SELINUXTYPE=targeted" > /etc/selinux/config
+
+setenforce Permissive
+
+#Stop and disable firewalld
+systemctl stop firewalld
+systemctl disable firewalld
+
+#Create directories for software and database
+mkdir -p $ORACLE_HOME
+mkdir -p $ORACLE_DB/data001
+mkdir -p $ORACLE_DB/dbfra001
+mkdir -p $ORACLE_DB/redo001
+mkdir -p $ORACLE_DB/redo002
+
+chown -R $O_USER:oinstall $ORACLE_APP_ROOT $ORACLE_DB
+chmod -R 775 $ORACLE_APP_ROOT $ORACLE_DB
+
+#.bash_profile
+echo "# Oracle Settings
+export TMP=/tmp
+export TMPDIR=\$TMP
+
+export ORACLE_HOSTNAME=`hostname`
+export ORACLE_UNQNAME=cdb1
+export ORACLE_BASE=\$ORACLE_BASE
+export ORACLE_HOME=\$ORACLE_HOME
+export ORA_INVENTORY=$ORACLE_APP_ROOT/oraInventory
+export ORACLE_SID=cdb1
+export PDB_NAME=pdb1
+export DATA_DIR=$ORACLE_DB
+
+export PATH=/usr/sbin:/usr/local/bin:\$PATH
+export PATH=\$ORACLE_HOME/bin:\$PATH
+
+export LD_LIBRARY_PATH=\$ORACLE_HOME/lib:/lib:/usr/lib
+export CLASSPATH=\$ORACLE_HOME/jlib:\$ORACLE_HOME/rdbms/jlib" >> /home/$O_USER/.bash_profile
 
 
 
