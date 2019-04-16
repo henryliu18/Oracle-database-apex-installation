@@ -185,6 +185,11 @@ chmod a+x $INST_ORACLE_SW_SHELL
 su - $O_USER -c $INST_ORACLE_SW_SHELL
 
 # execute last 2 scripts as root
-$ORACLE_APP_ROOT/oraInventory/orainstRoot.sh
-$ORACLE_HOME/root.sh
+if [ $? = 0 ]; then
+  $ORACLE_APP_ROOT/oraInventory/orainstRoot.sh
+  $ORACLE_HOME/root.sh
+else
+  echo "Installation failed"
+fi
+
 
