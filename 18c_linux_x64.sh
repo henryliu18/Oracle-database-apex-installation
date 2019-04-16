@@ -7,7 +7,7 @@ ORACLE_APP_ROOT=/opt/app
 ORACLE_BASE=$ORACLE_APP_ROOT/oracle
 ORACLE_HOME=/opt/app/oracle/product/18.0.0/dbhome_1
 ORACLE_DB=/ora/db001
-
+ORACLE_SW=$ORACLE_BASE/software
 
 #/etc/hosts configuration
 echo "`ip -f inet addr show $NIC | grep -Po 'inet \K[\d.]+'` `hostname`" >> /etc/hosts
@@ -89,6 +89,7 @@ yum install -y smartmontools
 yum install -y sysstat
 yum install -y targetcli
 yum install -y unixODBC
+yum install -y unzip
 
 #Create the new groups and users
 groupadd -g 54321 oinstall
