@@ -1,13 +1,13 @@
 #!/usr/bin/bash
 
-NIC=eth0
+NIC=ens33
 O_USER=oracle
 O_PASS=oracle123
 ORACLE_APP_ROOT=/opt/app
 ORACLE_BASE=$ORACLE_APP_ROOT/oracle
 ORACLE_HOME=/opt/app/oracle/product/18.0.0/dbhome_1
 ORACLE_DB=/ora/db001
-ORACLE_SW=/home/oracle/LINUX.X64_180000_db_home.zip
+ORACLE_SW=/tmp/LINUX.X64_180000_db_home.zip
 INST_ORACLE_SW_SHELL=/tmp/inst_ora_sw.sh
 
 #/etc/hosts configuration
