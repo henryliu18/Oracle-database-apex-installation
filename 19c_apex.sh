@@ -55,7 +55,8 @@ BEGIN
 END;
 /
 
-@apex_rest_config.sql ApexPassword1 ApexPassword2
+--can not silent
+--@apex_rest_config.sql ApexPassword1 ApexPassword2
 
 @apex_epg_config.sql $APEX_HOME
 
