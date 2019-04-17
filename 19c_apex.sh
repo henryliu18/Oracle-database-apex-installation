@@ -90,3 +90,4 @@ alter session set container=$APEX_PDB;
 EXEC DBMS_XDB.sethttpport(8080);
 exit
 EOF
+
