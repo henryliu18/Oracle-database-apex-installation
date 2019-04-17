@@ -4,9 +4,9 @@ Oracle database 18.3<br />
 Oracle APEX 19.1<br />
 
 
-Download software<br />
-Download LINUX.X64_180000_db_home.zip, save to /tmp<br />
-Download apex_19.1_en.zip, save to /tmp<br />
+Software location<br />
+Oracle database 18.3 /tmp/LINUX.X64_180000_db_home.zip<br />
+Apex 19c /tmp/apex_19.1_en.zip<br />
 
 Installation<br />
 execute 18c_linux_x64.sh as root<br />
