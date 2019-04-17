@@ -79,4 +79,3 @@ exit" > $APEX_SQL
 sqlplus / as sysdba @$APEX_SQL
 
 
-
