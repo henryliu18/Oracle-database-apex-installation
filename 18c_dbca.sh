@@ -24,3 +24,4 @@ dbca -silent -createDatabase                                                   \
      -redoLogFileSize 50                                                       \
      -emConfiguration NONE                                                     \
      -ignorePreReqs
+
