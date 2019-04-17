@@ -4,6 +4,16 @@ Oracle database 18.3<br />
 Oracle APEX 19.1<br />
 
 
+Download software<br />
+Download LINUX.X64_180000_db_home.zip, save to /tmp<br />
+Download apex_19.1_en.zip, save to /tmp<br />
+
+Installation<br />
+execute 18c_linux_x64.sh as root<br />
+execute 18c_netca.sh as oracle<br />
+execute 18c_dbca.sh as oracle<br />
+execute 19c_apex.sh as oracle<br />
+
 Apex URL<br />
 http://your-centos-server:8080/apex<br />
 
