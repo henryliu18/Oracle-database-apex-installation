@@ -1,5 +1,5 @@
 # Oracle-database-installation
-<b>Software required</b>
+<b>Software required</b><br />
 CentOS Linux release 7.6.1810 (Core)<br />
 Oracle database 18.3<br />
 Oracle APEX 19.1<br />
