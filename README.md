@@ -16,7 +16,7 @@ execute 19c_apex.sh as oracle<br />
 
 Apex Login page<br />
 http://localhost:8080/apex or<br /> 
-http://your-centos-server:8080/apex<br />
+http://server-ip:8080/apex<br />
 
 Apex admin login<br />
 Workspace: internal<br />
