@@ -15,16 +15,16 @@ DB Instances<br />
 CDB1<br />
 PDB1<br />
 
-Start service
-$ORACLE_HOME/bin/sqlplus / as sysdba << EOF
-startup
-exit
-EOF
-$ORACLE_HOME/bin/lsnrctl start
+Start service<br />
+$ORACLE_HOME/bin/sqlplus / as sysdba << EOF<br />
+startup<br />
+exit<br />
+EOF<br />
+$ORACLE_HOME/bin/lsnrctl start<br />
 
-Stop service
-$ORACLE_HOME/bin/sqlplus / as sysdba << EOF
-shutdown immediate
-exit
-EOF
-$ORACLE_HOME/bin/lsnrctl stop
+Stop service<br />
+$ORACLE_HOME/bin/sqlplus / as sysdba << EOF<br />
+shutdown immediate<br />
+exit<br />
+EOF<br />
+$ORACLE_HOME/bin/lsnrctl stop<br />
