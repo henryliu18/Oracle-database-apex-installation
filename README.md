@@ -1,7 +1,7 @@
 # Oracle-database-installation
-CentOS Linux release 7.6.1810 (Core)
-Oracle database 18.3
-Oracle APEX 19.1
+CentOS Linux release 7.6.1810 (Core)<br />
+Oracle database 18.3<br />
+Oracle APEX 19.1<br />
 
 
 Apex URL<br />
