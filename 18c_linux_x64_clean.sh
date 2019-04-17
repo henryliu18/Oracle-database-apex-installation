@@ -50,4 +50,3 @@ SELINUX=enforcing
 #     minimum - Modification of targeted policy. Only selected processes are protected.
 #     mls - Multi Level Security protection.
 SELINUXTYPE=targeted" > /etc/selinux/config
-
