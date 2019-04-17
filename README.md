@@ -31,14 +31,14 @@ DB Instances<br />
 CDB1<br />
 PDB1<br />
 
-Start service<br />
+Start service (execute as oracle user)<br />
 $ORACLE_HOME/bin/sqlplus / as sysdba << EOF<br />
 startup<br />
 exit<br />
 EOF<br />
 $ORACLE_HOME/bin/lsnrctl start<br />
 
-Stop service<br />
+Stop service (execute as oracle user)<br />
 $ORACLE_HOME/bin/sqlplus / as sysdba << EOF<br />
 shutdown immediate<br />
 exit<br />
