@@ -1,8 +1,11 @@
 # Oracle-database-installation
-Oracle database 18.3/Oracle APEX 19.1/CentOS Linux release 7.6.1810 (Core)
+CentOS Linux release 7.6.1810 (Core)
+Oracle database 18.3
+Oracle APEX 19.1
+
 
 Apex URL
-http://machine:8080/apex
+http://your-centos-server:8080/apex
 
 Installation location
 Oracle DB:/opt/app/oracle/product/18.0.0/dbhome_1
