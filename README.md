@@ -7,6 +7,11 @@ Oracle APEX 19.1
 Apex URL<br />
 http://your-centos-server:8080/apex<br />
 
+Apex admin login<br />
+Workspace: internal<br />
+User: ADMIN<br />
+Password: changeme123<br />
+
 Installation location<br />
 Oracle DB:/opt/app/oracle/product/18.0.0/dbhome_1<br />
 Oracle Apex:/opt/app/oracle/apex19/apex<br />
