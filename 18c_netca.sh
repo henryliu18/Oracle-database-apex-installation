@@ -6,3 +6,4 @@
 #
 
 netca /silent /responsefile $ORACLE_HOME/assistants/netca/netca.rsp
+
