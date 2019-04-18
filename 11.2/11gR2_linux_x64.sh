@@ -13,8 +13,8 @@ ORACLE_APP_ROOT=/opt/app
 ORACLE_BASE=$ORACLE_APP_ROOT/oracle
 ORACLE_HOME=/opt/app/oracle/product/11.2.0.4/db_1
 ORACLE_DB=/ora/db001
-ORACLE_SW1=/tmp/linux.x64_11gR2_database_1of2.zip
-ORACLE_SW2=/tmp/linux.x64_11gR2_database_2of2.zip
+ORACLE_SW1=/tmp/p13390677_112040_Linux-x86-64_1of7.zip
+ORACLE_SW2=/tmp/p13390677_112040_Linux-x86-64_2of7.zip
 ORACLE_SW_STG=/tmp/ora11g
 INST_ORACLE_SW_SHELL=/tmp/inst_ora_sw.sh
 
