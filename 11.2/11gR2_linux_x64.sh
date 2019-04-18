@@ -159,7 +159,7 @@ $ORACLE_SW_STG/database/runInstaller -silent -debug -force \
 FROM_LOCATION=$ORACLE_SW_STG/database/stage/products.xml \
 oracle.install.option=INSTALL_DB_SWONLY \
 UNIX_GROUP_NAME=oinstall \
-INVENTORY_LOCATION=\${ORA_INVENTORY} \
+INVENTORY_LOCATION=$ORACLE_APP_ROOT/oraInventory \
 ORACLE_HOME=${ORACLE_HOME} \
 ORACLE_HOME_NAME="OraDb11g_Home1" \
 ORACLE_BASE=${ORACLE_BASE} \
@@ -171,7 +171,6 @@ DECLINE_SECURITY_UPDATES=true" > $INST_ORACLE_SW_SHELL
 
 # Adding execute permission to all users
 chmod a+x $INST_ORACLE_SW_SHELL
-chown oracle:oinstall $ORACLE_SW
 
 # unzip; runInstaller as oracle
 su - $O_USER -c $INST_ORACLE_SW_SHELL
