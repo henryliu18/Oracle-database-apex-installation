@@ -2,7 +2,7 @@
 #!/usr/bin/bash
 
 #
-# Tested CentOS 7
+# Tested CentOS Linux release 7.6.1810 (Core)
 #
 #
 
