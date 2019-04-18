@@ -29,8 +29,8 @@ unzip -oq $APEX_SW
 cd apex
 
 # Create a new tablespace to act as the default tablespace for APEX.
-echo "ALTER SYSTEM SET MEMORY_TARGET='$APEX_DB_MEMORY' SCOPE=spfile;
-STARTUP FORCE
+echo "--ALTER SYSTEM SET MEMORY_TARGET='$APEX_DB_MEMORY' SCOPE=spfile;
+--STARTUP FORCE
 ALTER PLUGGABLE DATABASE $APEX_PDB OPEN READ WRITE;
 alter pluggable database $APEX_PDB save state;
 
