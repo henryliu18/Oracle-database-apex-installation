@@ -12,6 +12,9 @@ rm -rf /tmp/InstallActions*
 rm -rf /tmp/hsperfdata*
 rm -f /etc/oraInst.loc
 rm -f /etc/oratab
+rm -f /usr/local/bin/coraenv
+rm -f /usr/local/bin/dbhome
+rm -f /usr/local/bin/oraenv
 
 userdel -r oracle
 
