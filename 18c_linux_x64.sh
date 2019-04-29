@@ -96,6 +96,7 @@ yum install -y sysstat
 yum install -y targetcli
 yum install -y unixODBC
 yum install -y unzip
+yum install -y gcc-c++
 
 #Create the new groups and users
 groupadd -g 54321 oinstall
