@@ -4,7 +4,8 @@
 # Tested CentOS 7
 # Database creation, run as oracle user
 #
-
+ORATAB=/etc/oratab
+TMPORATAB=/tmp/oratab
 
 dbca -silent -createDatabase                                                   \
      -templateName General_Purpose.dbc                                         \
@@ -25,3 +26,8 @@ dbca -silent -createDatabase                                                   \
      -emConfiguration NONE                                                     \
      -ignorePreReqs
 
+# Change auto start flag from N to Y
+sed -e "/$ORACLE_SID/s/^/#/g" $ORATAB > $TMPORATAB
+grep "$ORACLE_SID.*:N" $ORATAB | sed s'/..$/:Y/' >> $TMPORATAB
+cat $TMPORATAB > $ORATAB
+rm -f $TMPORATAB
