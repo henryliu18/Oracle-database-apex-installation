@@ -9,11 +9,11 @@ CentOS Linux release 7.6.1810 (Core)<br />
 Oracle database 18.3 /tmp/LINUX.X64_180000_db_home.zip<br />
 Apex 19c /tmp/apex_19.1_en.zip<br />
 
-<b>Installation</b><br />
-execute 18c_linux_x64.sh as root<br />
-execute 18c_netca.sh as oracle<br />
-execute 18c_dbca.sh as oracle<br />
-execute 19c_apex.sh as oracle<br />
+<b>Installation (as root)</b><br />
+execute 18c_linux_x64.sh<br />
+execute 18c_netca.sh<br />
+execute 18c_dbca.sh<br />
+execute 19c_apex.sh<br />
 
 <b>Apex Login page</b><br />
 http://localhost:8080/apex or<br /> 
