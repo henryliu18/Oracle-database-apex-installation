@@ -5,8 +5,12 @@
 #
 #
 
-rm -rf /ora
-rm -rf /opt/app
+O_USER=oracle
+ORACLE_APP_ROOT=/opt/app
+ORACLE_DB=/ora/db001
+
+rm -rf $ORACLE_DB
+rm -rf $ORACLE_APP_ROOT
 rm -rf /opt/ORCLfmap
 rm -rf /tmp/InstallActions*
 rm -rf /tmp/hsperfdata*
@@ -16,13 +20,14 @@ rm -f /usr/local/bin/coraenv
 rm -f /usr/local/bin/dbhome
 rm -f /usr/local/bin/oraenv
 
-userdel -r oracle
+userdel -r $O_USER
 
 groupdel oinstall
 groupdel dba
 groupdel oper
 
 rm -f /tmp/inst_ora_sw.sh
+rm -f /tmp/inst_apex.sql
 
 echo "127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
 ::1         localhost localhost.localdomain localhost6 localhost6.localdomain6" > /etc/hosts
