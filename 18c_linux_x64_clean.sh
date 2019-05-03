@@ -5,9 +5,13 @@
 #
 #
 
-O_USER=oracle
-ORACLE_APP_ROOT=/opt/app
-ORACLE_DB=/ora/db001
+# Source env
+if [ -f `dirname $0`/env ]; then
+ . `dirname $0`/env
+else
+ echo "env file not found in `dirname $0`, run cd `dirname $0`;bash `dirname $0`/setup to create env file"
+ exit 1
+fi
 
 rm -rf $ORACLE_DB
 rm -rf $ORACLE_APP_ROOT
