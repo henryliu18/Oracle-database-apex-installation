@@ -145,12 +145,12 @@ export TMP=/tmp
 export TMPDIR=\$TMP
 
 export ORACLE_HOSTNAME=`hostname`
-export ORACLE_UNQNAME=cdb1
+export ORACLE_UNQNAME=$APEX_CDB
 export ORACLE_BASE=$ORACLE_BASE
 export ORACLE_HOME=$ORACLE_HOME
 export ORA_INVENTORY=$ORACLE_APP_ROOT/oraInventory
-export ORACLE_SID=cdb1
-export PDB_NAME=pdb1
+export ORACLE_SID=$APEX_CDB
+export PDB_NAME=$APEX_PDB
 
 export PATH=/usr/sbin:/usr/local/bin:\$PATH
 export PATH=$ORACLE_HOME/bin:\$PATH
