@@ -36,14 +36,14 @@ net.ipv4.ip_local_port_range = 9000 65500" >> /etc/sysctl.conf
 /sbin/sysctl -p
 
 #Setting Shell Limits for the Oracle User
-echo "oracle   soft   nofile    1024
-oracle   hard   nofile    65536
-oracle   soft   nproc    16384
-oracle   hard   nproc    16384
-oracle   soft   stack    10240
-oracle   hard   stack    32768
-oracle   hard   memlock    134217728
-oracle   soft   memlock    134217728" > /etc/security/limits.conf
+echo "$O_USER   soft   nofile    1024
+$O_USER   hard   nofile    65536
+$O_USER   soft   nproc    16384
+$O_USER   hard   nproc    16384
+$O_USER   soft   stack    10240
+$O_USER   hard   stack    32768
+$O_USER   hard   memlock    134217728
+$O_USER   soft   memlock    134217728" > /etc/security/limits.conf
 
 #The following packages are listed as required, including the 32-bit version of some of the packages. Many of the packages should be installed already.
 yum install -y bc    
@@ -101,7 +101,7 @@ groupadd -g 54321 oinstall
 groupadd -g 54322 dba
 groupadd -g 54323 oper
 
-useradd -u 54321 -g oinstall -G dba,oper oracle
+useradd -u 54321 -g oinstall -G dba,oper $O_USER
 
 #Specify oracle password
 passwd $O_USER <<EOF
@@ -183,7 +183,7 @@ unzip -oq $ORACLE_SW
 
 # Adding execute permission to all users
 chmod a+x $INST_ORACLE_SW_SHELL
-chown oracle:oinstall $ORACLE_SW
+chown $O_USER:oinstall $ORACLE_SW
 
 # unzip; runInstaller as oracle
 su - $O_USER -c $INST_ORACLE_SW_SHELL
