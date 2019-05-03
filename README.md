@@ -10,10 +10,11 @@ Oracle database 18.3 /tmp/LINUX.X64_180000_db_home.zip<br />
 Apex 19c /tmp/apex_19.1_en.zip<br />
 
 <b>Installation (as root)</b><br />
-execute 18c_linux_x64.sh<br />
-execute 18c_netca.sh<br />
-execute 18c_dbca.sh<br />
-execute 19c_apex.sh<br />
+bash setup<br />
+bash 18c_linux_x64.sh<br />
+bash 18c_netca.sh<br />
+bash 18c_dbca.sh<br />
+bash 19c_apex.sh<br />
 
 <b>Apex Login page</b><br />
 http://localhost:8080/apex or<br /> 
