@@ -1,7 +1,13 @@
 #!/usr/bin/bash
 
+ifconfig -a|grep 'inet\|flags'
 read -p "Servicable network interface [eth0]: " NIC
 NIC=${NIC:-eth0}
+ifconfig $NIC
+if [ $? -ne 0 ]; then
+ echo "$NIC not found, exiting"
+ exit 1
+fi
 
 read -p "Oracle account [oracle]: " O_USER
 O_USER=${O_USER:-oracle}
