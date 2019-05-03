@@ -192,3 +192,4 @@ su - $O_USER -c $INST_ORACLE_SW_SHELL
 $ORACLE_APP_ROOT/oraInventory/orainstRoot.sh
 $ORACLE_HOME/root.sh
 
+rm -f $INST_ORACLE_SW_SHELL
