@@ -8,7 +8,7 @@
 ORATAB=/etc/oratab
 TMPORATAB=/tmp/oratab
 O_USER=oracle
-RUN_SCRIPT=/tmp/run_dbca
+RUN_DBCA=/tmp/run_dbca
 
 echo "dbca -silent -createDatabase \
      -templateName General_Purpose.dbc \
@@ -29,10 +29,10 @@ echo "dbca -silent -createDatabase \
      -datafileDestination "\$DATA_DIR" \
      -redoLogFileSize 50 \
      -emConfiguration NONE \
-     -ignorePreReqs" > $RUN_SCRIPT
-chmod a+x $RUN_SCRIPT
-su - $O_USER -c $RUN_SCRIPT
-rm -f $RUN_SCRIPT
+     -ignorePreReqs" > $RUN_DBCA
+chmod a+x $RUN_DBCA
+su - $O_USER -c $RUN_DBCA
+rm -f $RUN_DBCA
 
 # Change auto start flag from N to Y
 sed -e "/$ORACLE_SID/s/^/#/g" $ORATAB > $TMPORATAB
