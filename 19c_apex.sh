@@ -10,7 +10,7 @@ ORACLE_HOME=/data/test/oracle/product/18.0.0/dbhome_1
 O_USER=oracle
 APEX_SW=/data/zip/apex_19.1_en.zip
 APEX_SQL=/tmp/inst_apex.sql
-RUN_SCRIPT=/tmp/run_apex
+RUN_APEX=/tmp/run_apex
 APEX_CDB=cdb1
 APEX_CDB_SYS=sys
 APEX_CDB_SYSPW=SysPassword1
@@ -72,8 +72,8 @@ mkdir $APEX_HOME
 cd $APEX_HOME
 unzip -oq $APEX_SW
 cd apex
-$ORACLE_HOME/bin/sqlplus / as sysdba @$APEX_SQL" > $RUN_SCRIPT
-chmod a+x $RUN_SCRIPT
-su - $O_USER -c $RUN_SCRIPT
-rm -f $RUN_SCRIPT
+$ORACLE_HOME/bin/sqlplus / as sysdba @$APEX_SQL" > $RUN_APEX
+chmod a+x $RUN_APEX
+su - $O_USER -c $RUN_APEX
+rm -f $RUN_APEX
 rm -f $APEX_SQL
