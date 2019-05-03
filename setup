@@ -9,13 +9,13 @@ O_USER=${O_USER:-oracle}
 read -p "Oracle account's password [oracle123]: " O_PASS
 O_PASS=${O_PASS:-oracle123}
 
-read -p "Oracle software root (The root directory that will hold oracle database and oraInventory binaries) [/opt/app]: " ORACLE_APP_ROOT
+read -p "\$ORACLE_APP_ROOT (The root directory that will hold oracle database and oraInventory binaries) [/opt/app]: " ORACLE_APP_ROOT
 ORACLE_APP_ROOT=${ORACLE_APP_ROOT:-/opt/app}
 
-read -p "Oracle software base (oracle database root directory) [\$ORACLE_APP_ROOT/oracle]: " ORACLE_BASE
+read -p "\$ORACLE_BASE (oracle database root directory) [\$ORACLE_APP_ROOT/oracle]: " ORACLE_BASE
 ORACLE_BASE=${ORACLE_BASE:-\$ORACLE_APP_ROOT/oracle}
 
-read -p "Oracle home (oracle database home directory) [\$ORACLE_BASE/product/18.0.0/dbhome_1]: " ORACLE_HOME
+read -p "\$ORACLE_HOME (oracle database home directory) [\$ORACLE_BASE/product/18.0.0/dbhome_1]: " ORACLE_HOME
 ORACLE_HOME=${ORACLE_HOME:-\$ORACLE_BASE/product/18.0.0/dbhome_1}
 
 read -p "Oracle database files directory [/ora/db001]: " ORACLE_DB
