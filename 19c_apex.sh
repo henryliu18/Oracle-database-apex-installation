@@ -4,22 +4,14 @@
 # Tested CentOS 7
 # Apex installation, run as oracle user
 #
-ORACLE_BASE=/data/test/oracle
-ORACLE_HOME=/data/test/oracle/product/18.0.0/dbhome_1
 
-O_USER=oracle
-APEX_SW=/data/zip/apex_19.1_en.zip
-APEX_SQL=/tmp/inst_apex.sql
-RUN_APEX=/tmp/run_apex
-APEX_CDB=cdb1
-APEX_CDB_SYS=sys
-APEX_CDB_SYSPW=SysPassword1
-APEX_PDB=pdb1
-APEX_TABLESPACE=APEX
-APEX_HOME=$ORACLE_BASE/apex19
-APEX_DB_MEMORY=1500M
-
-ORACLE_DB=/ora/db001
+# Source env
+if [ -f `dirname $0`/env ]; then
+ . `dirname $0`/env
+else
+ echo "env file not found in `dirname $0`, run cd `dirname $0`;bash `dirname $0`/setup to create env file"
+ exit 1
+fi
 
 # Create a new tablespace to act as the default tablespace for APEX.
 echo "--ALTER SYSTEM SET MEMORY_TARGET='$APEX_DB_MEMORY' SCOPE=spfile;

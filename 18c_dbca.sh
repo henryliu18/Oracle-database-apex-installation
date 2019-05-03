@@ -5,16 +5,19 @@
 # Database creation, run as root user
 #
 
-ORATAB=/etc/oratab
-TMPORATAB=/tmp/oratab
-O_USER=oracle
-RUN_DBCA=/tmp/run_dbca
+# Source env
+if [ -f `dirname $0`/env ]; then
+ . `dirname $0`/env
+else
+ echo "env file not found in `dirname $0`, run cd `dirname $0`;bash `dirname $0`/setup to create env file"
+ exit 1
+fi
 
 echo "dbca -silent -createDatabase \
      -templateName General_Purpose.dbc \
      -gdbname \$ORACLE_SID \
      -sid \$ORACLE_SID \
-	-responseFile NO_VALUE \
+     -responseFile NO_VALUE \
      -characterSet AL32UTF8 \
      -sysPassword SysPassword1 \
      -systemPassword SysPassword1 \
@@ -26,7 +29,7 @@ echo "dbca -silent -createDatabase \
      -automaticMemoryManagement false \
      -totalMemory 1500 \
      -storageType FS \
-     -datafileDestination "\$DATA_DIR" \
+     -datafileDestination "$ORACLE_DB" \
      -redoLogFileSize 50 \
      -emConfiguration NONE \
      -ignorePreReqs" > $RUN_DBCA

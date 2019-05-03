@@ -5,15 +5,13 @@
 #
 #
 
-NIC=ens33
-O_USER=oracle
-O_PASS=oracle123
-ORACLE_APP_ROOT=/opt/app
-ORACLE_BASE=$ORACLE_APP_ROOT/oracle
-ORACLE_HOME=$ORACLE_BASE/product/18.0.0/dbhome_1
-ORACLE_DB=/ora/db001
-ORACLE_SW=/tmp/LINUX.X64_180000_db_home.zip
-INST_ORACLE_SW_SHELL=/tmp/inst_ora_sw.sh
+# Source env
+if [ -f `dirname $0`/env ]; then
+ . `dirname $0`/env
+else
+ echo "env file not found in `dirname $0`, run cd `dirname $0`;bash `dirname $0`/setup to create env file"
+ exit 1
+fi
 
 #/etc/hosts configuration
 echo "`ip -f inet addr show $NIC | grep -Po 'inet \K[\d.]+'` `hostname`" >> /etc/hosts
@@ -147,13 +145,12 @@ export TMP=/tmp
 export TMPDIR=\$TMP
 
 export ORACLE_HOSTNAME=`hostname`
-export ORACLE_UNQNAME=cdb1
+export ORACLE_UNQNAME=$APEX_CDB
 export ORACLE_BASE=$ORACLE_BASE
 export ORACLE_HOME=$ORACLE_HOME
 export ORA_INVENTORY=$ORACLE_APP_ROOT/oraInventory
-export ORACLE_SID=cdb1
-export PDB_NAME=pdb1
-export DATA_DIR=$ORACLE_DB
+export ORACLE_SID=$APEX_CDB
+export PDB_NAME=$APEX_PDB
 
 export PATH=/usr/sbin:/usr/local/bin:\$PATH
 export PATH=$ORACLE_HOME/bin:\$PATH

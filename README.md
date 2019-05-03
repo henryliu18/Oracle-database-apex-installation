@@ -5,15 +5,16 @@ CentOS Linux release 7.6.1810 (Core)<br />
 <a href="https://www.oracle.com/database/technologies/appdev/apex.html">Oracle APEX 19.1</a><br />
 
 
-<b>Software location</b><br />
-Oracle database 18.3 /tmp/LINUX.X64_180000_db_home.zip<br />
-Apex 19c /tmp/apex_19.1_en.zip<br />
+<b>Software zip files location</b><br />
+Oracle database 18.3 is defined in env $ORACLE_SW<br />
+Apex 19c is defined in env $APEX_SW<br />
 
 <b>Installation (as root)</b><br />
-execute 18c_linux_x64.sh<br />
-execute 18c_netca.sh<br />
-execute 18c_dbca.sh<br />
-execute 19c_apex.sh<br />
+bash setup<br />
+bash 18c_linux_x64.sh<br />
+bash 18c_netca.sh<br />
+bash 18c_dbca.sh<br />
+bash 19c_apex.sh<br />
 
 <b>Apex Login page</b><br />
 http://localhost:8080/apex or<br /> 
@@ -25,23 +26,15 @@ User: ADMIN<br />
 Password: changeme123<br />
 
 <b>Installation location</b><br />
-Oracle DB:/opt/app/oracle/product/18.0.0/dbhome_1<br />
-Oracle Apex:/opt/app/oracle/apex19/apex<br />
+Oracle database software is defined in env $ORACLE_HOME<br />
+Oracle Apex is defined in env $APEX_HOME<br />
 
 <b>DB Instances</b><br />
-CDB1<br />
-PDB1<br />
+Defined in env $APEX_CDB<br />
+Defined in env $APEX_PDB<br />
 
 <b>Start service (execute as oracle user)</b><br />
-$ORACLE_HOME/bin/sqlplus / as sysdba << EOF<br />
-startup<br />
-exit<br />
-EOF<br />
-$ORACLE_HOME/bin/lsnrctl start<br />
+$ORACLE_HOME/bin/dbstart $ORACLE_HOME<br />
 
 <b>Stop service (execute as oracle user)</b><br />
-$ORACLE_HOME/bin/sqlplus / as sysdba << EOF<br />
-shutdown immediate<br />
-exit<br />
-EOF<br />
-$ORACLE_HOME/bin/lsnrctl stop<br />
+$ORACLE_HOME/bin/dbshut $ORACLE_HOME<br />
