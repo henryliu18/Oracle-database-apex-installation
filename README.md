@@ -33,15 +33,7 @@ CDB1<br />
 PDB1<br />
 
 <b>Start service (execute as oracle user)</b><br />
-$ORACLE_HOME/bin/sqlplus / as sysdba << EOF<br />
-startup<br />
-exit<br />
-EOF<br />
-$ORACLE_HOME/bin/lsnrctl start<br />
+$ORACLE_HOME/bin/dbstart $ORACLE_HOME<br />
 
 <b>Stop service (execute as oracle user)</b><br />
-$ORACLE_HOME/bin/sqlplus / as sysdba << EOF<br />
-shutdown immediate<br />
-exit<br />
-EOF<br />
-$ORACLE_HOME/bin/lsnrctl stop<br />
+$ORACLE_HOME/bin/dbshut $ORACLE_HOME<br />
