@@ -151,7 +151,6 @@ export ORACLE_HOME=$ORACLE_HOME
 export ORA_INVENTORY=$ORACLE_APP_ROOT/oraInventory
 export ORACLE_SID=cdb1
 export PDB_NAME=pdb1
-export DATA_DIR=$ORACLE_DB
 
 export PATH=/usr/sbin:/usr/local/bin:\$PATH
 export PATH=$ORACLE_HOME/bin:\$PATH
