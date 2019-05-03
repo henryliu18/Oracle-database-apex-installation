@@ -30,8 +30,8 @@ Oracle database software is defined in env $ORACLE_HOME<br />
 Oracle Apex is defined in env $APEX_HOME<br />
 
 <b>DB Instances</b><br />
-Defined in env $APEX_CDB<br />
-Defined in env $APEX_PDB<br />
+Defined in env $CDB<br />
+Defined in env $PDB<br />
 
 <b>Start service (execute as oracle user)</b><br />
 $ORACLE_HOME/bin/dbstart $ORACLE_HOME<br />
