@@ -16,9 +16,9 @@ fi
 # Create a new tablespace to act as the default tablespace for APEX.
 echo "--ALTER SYSTEM SET MEMORY_TARGET='$APEX_DB_MEMORY' SCOPE=spfile;
 --STARTUP FORCE
-ALTER PLUGGABLE DATABASE $APEX_PDB OPEN READ WRITE;
-alter pluggable database $APEX_PDB save state;
-alter session set container=$APEX_PDB;
+ALTER PLUGGABLE DATABASE $PDB OPEN READ WRITE;
+alter pluggable database $PDB save state;
+alter session set container=$PDB;
 ALTER SYSTEM SET db_create_file_dest = '$ORACLE_DB';
 CREATE TABLESPACE $APEX_TABLESPACE DATAFILE SIZE 100M AUTOEXTEND ON NEXT 1M;
 -- @apexins.sql tablespace_apex tablespace_files tablespace_temp images
@@ -48,7 +48,7 @@ BEGIN
   EXECUTE IMMEDIATE 'ALTER USER anonymous IDENTIFIED BY ' || l_passwd || ' ACCOUNT UNLOCK CONTAINER=ALL';
 END;
 /
-alter session set container=$APEX_PDB;
+alter session set container=$PDB;
 EXEC DBMS_XDB.sethttpport(8080);
 exit" > $APEX_SQL
 
