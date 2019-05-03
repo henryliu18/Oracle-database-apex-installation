@@ -18,8 +18,6 @@ APEX_PDB=pdb1
 APEX_TABLESPACE=APEX
 APEX_HOME=$ORACLE_BASE/apex19
 APEX_DB_MEMORY=1500M
-APEX_ADMIN=ADMIN
-APEX_ADMINPW=changeme123
 
 DATA_DIR=/data/test/ora/db001
 
@@ -37,9 +35,9 @@ BEGIN
     APEX_UTIL.set_security_group_id( 10 );
     
     APEX_UTIL.create_user(
-        p_user_name       => '$APEX_ADMIN',
+        p_user_name       => 'ADMIN',
         p_email_address   => 'me@example.com',
-        p_web_password    => '$APEX_ADMINPW',
+        p_web_password    => 'changeme123',
         p_developer_privs => 'ADMIN' );
         
     APEX_UTIL.set_security_group_id( null );
