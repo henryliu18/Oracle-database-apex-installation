@@ -56,6 +56,9 @@ APEX_SQL=${APEX_SQL:-/tmp/inst_apex.sql}
 read -p "Location of auto generated script for apex installation [/tmp/run_apex]: " RUN_APEX
 RUN_APEX=${RUN_APEX:-/tmp/run_apex}
 
+read -p "\$ORACLE_SID - Database database name or container instance name for apex [cdb1]: " APEX_CDB
+APEX_CDB=${APEX_CDB:-cdb1}
+
 read -p "Database container name for apex [pdb1]: " APEX_PDB
 APEX_PDB=${APEX_PDB:-pdb1}
 
@@ -82,6 +85,7 @@ APEX_SW=${APEX_SW}
 APEX_SQL=${APEX_SQL}
 RUN_APEX=${RUN_APEX}
 APEX_PDB=${APEX_PDB}
+APEX_CDB=${APEX_CDB}
 APEX_TABLESPACE=${APEX_TABLESPACE}
 APEX_HOME=${APEX_HOME}" > env
 
