@@ -19,7 +19,7 @@ APEX_TABLESPACE=APEX
 APEX_HOME=$ORACLE_BASE/apex19
 APEX_DB_MEMORY=1500M
 
-DATA_DIR=/data/test/ora/db001
+ORACLE_DB=/ora/db001
 
 # Create a new tablespace to act as the default tablespace for APEX.
 echo "--ALTER SYSTEM SET MEMORY_TARGET='$APEX_DB_MEMORY' SCOPE=spfile;
@@ -27,7 +27,7 @@ echo "--ALTER SYSTEM SET MEMORY_TARGET='$APEX_DB_MEMORY' SCOPE=spfile;
 ALTER PLUGGABLE DATABASE $APEX_PDB OPEN READ WRITE;
 alter pluggable database $APEX_PDB save state;
 alter session set container=$APEX_PDB;
-ALTER SYSTEM SET db_create_file_dest = '$DATA_DIR';
+ALTER SYSTEM SET db_create_file_dest = '$ORACLE_DB';
 CREATE TABLESPACE $APEX_TABLESPACE DATAFILE SIZE 100M AUTOEXTEND ON NEXT 1M;
 -- @apexins.sql tablespace_apex tablespace_files tablespace_temp images
 @apexins.sql $APEX_TABLESPACE $APEX_TABLESPACE TEMP /i/
