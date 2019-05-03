@@ -6,8 +6,8 @@ CentOS Linux release 7.6.1810 (Core)<br />
 
 
 <b>Software location</b><br />
-Oracle database 18.3 /tmp/LINUX.X64_180000_db_home.zip<br />
-Apex 19c /tmp/apex_19.1_en.zip<br />
+Oracle database 18.3 is defined in env $ORACLE_SW<br />
+Apex 19c is defined in env $APEX_SW<br />
 
 <b>Installation (as root)</b><br />
 bash setup<br />
@@ -26,12 +26,12 @@ User: ADMIN<br />
 Password: changeme123<br />
 
 <b>Installation location</b><br />
-Oracle DB:/opt/app/oracle/product/18.0.0/dbhome_1<br />
-Oracle Apex:/opt/app/oracle/apex19/apex<br />
+Oracle database software is defined in env $ORACLE_HOME<br />
+Oracle Apex is defined in env $APEX_HOME<br />
 
 <b>DB Instances</b><br />
-CDB1<br />
-PDB1<br />
+Defined in env $APEX_CDB<br />
+Defined in env $APEX_PDB<br />
 
 <b>Start service (execute as oracle user)</b><br />
 $ORACLE_HOME/bin/dbstart $ORACLE_HOME<br />
