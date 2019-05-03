@@ -29,7 +29,7 @@ echo "dbca -silent -createDatabase \
      -automaticMemoryManagement false \
      -totalMemory 1500 \
      -storageType FS \
-     -datafileDestination "\$DATA_DIR" \
+     -datafileDestination "$ORACLE_DB" \
      -redoLogFileSize 50 \
      -emConfiguration NONE \
      -ignorePreReqs" > $RUN_DBCA
