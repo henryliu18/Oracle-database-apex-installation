@@ -1,25 +1,29 @@
 #!/usr/bin/bash
 
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+OFF='\033[0m'
+
 ifconfig -a|grep 'inet\|flags'
 read -p "Servicable network interface [eth0]: " NIC
 NIC=${NIC:-eth0}
 ifconfig $NIC
 if [ $? -ne 0 ]; then
- echo "$NIC not found, exiting"
+ echo -e "${RED}$NIC not found, exiting${OFF}"
  exit 1
 fi
 
 read -p "Oracle software zip file [/tmp/LINUX.X64_180000_db_home.zip]: " ORACLE_SW
 ORACLE_SW=${ORACLE_SW:-/tmp/LINUX.X64_180000_db_home.zip}
 if [ ! -f $ORACLE_SW ]; then
- echo "$ORACLE_SW not found, exiting"
+ echo -e "${RED}$ORACLE_SW not found, exiting${OFF}"
  exit 1
 fi
 
 read -p "Location of Apex zip file [/tmp/apex_19.1_en.zip]: " APEX_SW
 APEX_SW=${APEX_SW:-/tmp/apex_19.1_en.zip}
 if [ ! -f $APEX_SW ]; then
- echo "$APEX_SW not found, exiting"
+ echo -e "${RED}$APEX_SW not found, exiting${OFF}"
  exit 1
 fi
 
