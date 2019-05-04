@@ -9,6 +9,20 @@ if [ $? -ne 0 ]; then
  exit 1
 fi
 
+read -p "Oracle software zip file [/tmp/LINUX.X64_180000_db_home.zip]: " ORACLE_SW
+ORACLE_SW=${ORACLE_SW:-/tmp/LINUX.X64_180000_db_home.zip}
+if [ ! -f $ORACLE_SW ]; then
+ echo "$ORACLE_SW not found, exiting"
+ exit 1
+fi
+
+read -p "Location of Apex zip file [/tmp/apex_19.1_en.zip]: " APEX_SW
+APEX_SW=${APEX_SW:-/tmp/apex_19.1_en.zip}
+if [ ! -f $APEX_SW ]; then
+ echo "$APEX_SW not found, exiting"
+ exit 1
+fi
+
 read -p "Oracle account [oracle]: " O_USER
 O_USER=${O_USER:-oracle}
 
@@ -27,13 +41,6 @@ ORACLE_HOME=${ORACLE_HOME:-\$ORACLE_BASE/product/18.0.0/dbhome_1}
 read -p "Oracle database files directory [/ora/db001]: " ORACLE_DB
 ORACLE_DB=${ORACLE_DB:-/ora/db001}
 
-read -p "Oracle software zip file [/tmp/LINUX.X64_180000_db_home.zip]: " ORACLE_SW
-ORACLE_SW=${ORACLE_SW:-/tmp/LINUX.X64_180000_db_home.zip}
-if [ ! -f $ORACLE_SW ]; then
- echo "$ORACLE_SW not found, exiting"
- exit 1
-fi
-
 read -p "Location of auto generated script for oracle db softwarae installation [/tmp/inst_ora_sw.sh]: " INST_ORACLE_SW_SHELL
 INST_ORACLE_SW_SHELL=${INST_ORACLE_SW_SHELL:-/tmp/inst_ora_sw.sh}
 
@@ -48,13 +55,6 @@ ORATAB=${ORATAB:-/etc/oratab}
 
 read -p "Location of temporary oratab [/tmp/oratab]: " TMPORATAB
 TMPORATAB=${TMPORATAB:-/tmp/oratab}
-
-read -p "Location of Apex zip file [/tmp/apex_19.1_en.zip]: " APEX_SW
-APEX_SW=${APEX_SW:-/tmp/apex_19.1_en.zip}
-if [ ! -f $APEX_SW ]; then
- echo "$APEX_SW not found, exiting"
- exit 1
-fi
 
 read -p "Location of Apex sql file for installation [/tmp/inst_apex.sql]: " APEX_SQL
 APEX_SQL=${APEX_SQL:-/tmp/inst_apex.sql}
