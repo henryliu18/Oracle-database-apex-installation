@@ -38,7 +38,7 @@ su - $O_USER -c $RUN_DBCA
 rm -f $RUN_DBCA
 
 # Change auto start flag from N to Y
-sed -e "/$ORACLE_SID/s/^/#/g" $ORATAB > $TMPORATAB
-grep "$ORACLE_SID.*:N" $ORATAB | sed s'/..$/:Y/' >> $TMPORATAB
+sed -e "$CDB/s/^/#/g" $ORATAB > $TMPORATAB
+grep "$CDB.*:N" $ORATAB | sed s'/..$/:Y/' >> $TMPORATAB
 cat $TMPORATAB > $ORATAB
 rm -f $TMPORATAB
