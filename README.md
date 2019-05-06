@@ -10,7 +10,7 @@ Oracle database 18.3 is defined in env $ORACLE_SW<br />
 Apex 19c is defined in env $APEX_SW<br />
 
 <b>Installation (as root)</b><br />
-setup [env|sw|db|apex|all]<br />
+setup [env|sw|db|apex|all|clean]<br />
 
 <b>Apex Login page</b><br />
 http://localhost:8080/apex or<br /> 
