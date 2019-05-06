@@ -10,11 +10,7 @@ Oracle database 18.3 is defined in env $ORACLE_SW<br />
 Apex 19c is defined in env $APEX_SW<br />
 
 <b>Installation (as root)</b><br />
-bash setup<br />
-bash 18c_linux_x64.sh<br />
-bash 18c_netca.sh<br />
-bash 18c_dbca.sh<br />
-bash 19c_apex.sh<br />
+setup [env|sw|db|apex|all]<br />
 
 <b>Apex Login page</b><br />
 http://localhost:8080/apex or<br /> 

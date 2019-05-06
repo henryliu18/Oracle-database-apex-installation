@@ -5,17 +5,18 @@ if [ "$1" = "env" ]; then
 elif [ "$1" = "sw" ]; then
   bash 18c_linux_x64.sh
 elif [ "$1" = "db" ]; then
-  bash 18c_netca.sh
-  bash 18c_dbca.sh
+  command bash 18c_linux_x64.sh && command bash 18c_netca.sh && command bash 18c_dbca.sh || exit
 elif [ "$1" = "apex" ]; then
   bash 19c_apex.sh
 elif [ "$1" = "all" ]; then
-  bash 18c_linux_x64.sh
-  bash 18c_netca.sh
-  bash 18c_dbca.sh
-  bash 19c_apex.sh
+  command bash 18c_linux_x64.sh && command bash 18c_netca.sh && command bash 18c_dbca.sh && command bash 19c_apex.sh || exit
 else
   echo "Usage: setup [env|sw|db|apex|all]"
+  echo "  env  Collect user inputs and create env file"
+  echo "  sw   Install Oracle 18c softwrae only"
+  echo "  db   Install Oracle 18c, configure Oracle Listener and create container and pluggable databases"
+  echo "  apex Create Oracle tablespace and install apex 19c"
+  echo "  all  Perform sw, db and apex"
   exit 2
 fi
 
