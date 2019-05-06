@@ -100,9 +100,9 @@ APEX_TABLESPACE=${APEX_TABLESPACE}
 APEX_HOME=${APEX_HOME}" > env
 
 if [ $? -eq 0 ]; then
- echo "***************************************************"
- echo "*** env saved in `pwd`/env                        *"
- echo "***************************************************"
+ echo "**************************************************************"
+ echo "*** env saved in `pwd`/env *"
+ echo "**************************************************************"
 else
  echo "env saved failed";
 fi
