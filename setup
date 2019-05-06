@@ -10,13 +10,16 @@ elif [ "$1" = "apex" ]; then
   bash 19c_apex.sh
 elif [ "$1" = "all" ]; then
   command bash 18c_linux_x64.sh && command bash 18c_netca.sh && command bash 18c_dbca.sh && command bash 19c_apex.sh || exit
+elif [ "$1" = "clean" ]; then
+  command bash 18c_linux_x64_clean.sh || exit
 else
-  echo "Usage: setup [env|sw|db|apex|all]"
-  echo "  env  Collect user inputs and create env file"
-  echo "  sw   Install Oracle 18c softwrae only"
-  echo "  db   Install Oracle 18c, configure Oracle Listener and create container and pluggable databases"
-  echo "  apex Create Oracle tablespace and install apex 19c"
-  echo "  all  Perform sw, db and apex"
+  echo "Usage: setup [env|sw|db|apex|all|clean]"
+  echo "  env    Collect user inputs and create env file"
+  echo "  sw     Install Oracle 18c softwrae only"
+  echo "  db     Install Oracle 18c, configure Oracle Listener and create container and pluggable databases"
+  echo "  apex   Create Oracle tablespace and install apex 19c"
+  echo "  all    Perform sw, db and apex"
+  echo "  clean  Delete Oracle 18c, account, groups"
   exit 2
 fi
 
