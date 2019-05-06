@@ -14,6 +14,8 @@ else
  exit 1
 fi
 
+su - $O_USER -c "\$ORACLE_HOME/bin/dbshut \$ORACLE_HOME"
+
 rm -rf $ORACLE_DB
 rm -rf $ORACLE_APP_ROOT
 rm -rf /opt/ORCLfmap
