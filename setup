@@ -1,17 +1,17 @@
 #!/usr/bin/bash
 
 if [ "$1" = "env" ]; then
-  bash 18c_env.sh
+  bash `dirname $0`/18c_env.sh
 elif [ "$1" = "sw" ]; then
-  bash 18c_linux_x64.sh
+  bash `dirname $0`/18c_linux_x64.sh
 elif [ "$1" = "db" ]; then
-  command bash 18c_linux_x64.sh && command bash 18c_netca.sh && command bash 18c_dbca.sh || exit
+  command bash `dirname $0`/18c_linux_x64.sh && command bash `dirname $0`/18c_netca.sh && command bash `dirname $0`/18c_dbca.sh || exit
 elif [ "$1" = "apex" ]; then
-  bash 19c_apex.sh
+  bash `dirname $0`/19c_apex.sh
 elif [ "$1" = "all" ]; then
-  command bash 18c_linux_x64.sh && command bash 18c_netca.sh && command bash 18c_dbca.sh && command bash 19c_apex.sh || exit
+  command bash `dirname $0`/18c_linux_x64.sh && command bash `dirname $0`/18c_netca.sh && command bash `dirname $0`/18c_dbca.sh && command bash `dirname $0`/19c_apex.sh || exit
 elif [ "$1" = "clean" ]; then
-  command bash 18c_linux_x64_clean.sh || exit
+  command bash `dirname $0`/18c_linux_x64_clean.sh || exit
 else
   echo "Usage: setup [env|sw|db|apex|all|clean]"
   echo "  env    Collect user inputs and create env file"

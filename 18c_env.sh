@@ -97,13 +97,13 @@ RUN_APEX=${RUN_APEX}
 PDB=${PDB}
 CDB=${CDB}
 APEX_TABLESPACE=${APEX_TABLESPACE}
-APEX_HOME=${APEX_HOME}" > env
+APEX_HOME=${APEX_HOME}" > `dirname $0`/env
 
 if [ $? -eq 0 ]; then
  echo "**************************************************************"
- echo "*** env saved in `pwd`/env *"
+ echo "*** env saved in `dirname $0`/env *"
  echo "**************************************************************"
 else
- echo "env saved failed";
+ echo "`dirname $0`/env saved failed";
 fi
 
