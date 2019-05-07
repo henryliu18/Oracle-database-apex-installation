@@ -72,6 +72,16 @@ END;
 /
 exit" > $APEX_SQL
 
+# tnsnames.ora
+echo "$PDB =
+  (DESCRIPTION =
+    (ADDRESS = (PROTOCOL = TCP)(HOST = `hostname`)(PORT = 1521))
+    (CONNECT_DATA =
+      (SERVER = DEDICATED)
+      (SERVICE_NAME = $PDB)
+    )
+  )" >> $ORACLE_HOME/network/admin/tnsnames.ora
+
 echo "ORAENV_ASK=NO
 . oraenv
 
