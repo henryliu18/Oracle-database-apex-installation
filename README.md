@@ -1,4 +1,4 @@
-# Oracle-database-installation
+# Oracle-database-apex-installation
 <b>Software required</b><br />
 CentOS Linux release 7.6.1810 (Core)<br />
 <a href="https://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html">Oracle database 18.3</a><br />
@@ -10,6 +10,9 @@ Oracle database 18.3 is defined in env $ORACLE_SW<br />
 Apex 19c is defined in env $APEX_SW<br />
 
 <b>Installation (as root)</b><br />
+git clone https://github.com/henryliu18/Oracle-database-apex-installation.git<br />
+Oracle-database-apex-installation/setup env<br />
+Oracle-database-apex-installation/setup all<br />
 setup [env|sw|db|apex|all|clean]<br />
 
 <b>Apex Login page</b><br />
