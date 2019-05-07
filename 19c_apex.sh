@@ -50,7 +50,9 @@ BEGIN
 END;
 /
 alter session set container=$PDB;
-EXEC DBMS_XDB.sethttpport(8080);
+ALTER USER APEX_PUBLIC_USER ACCOUNT UNLOCK;
+ALTER USER APEX_PUBLIC_USER IDENTIFIED BY pass;
+@apex_rest_config.sql
 exit" > $APEX_SQL
 
 echo "ORAENV_ASK=NO
