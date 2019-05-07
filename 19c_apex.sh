@@ -52,11 +52,11 @@ END;
 alter session set container=$PDB;
 ALTER USER APEX_PUBLIC_USER ACCOUNT UNLOCK;
 ALTER USER APEX_PUBLIC_USER IDENTIFIED BY pass;
-@apex_rest_config.sql
+
 BEGIN
 DBMS_NETWORK_ACL_ADMIN.APPEND_HOST_ACE(
 host => '*',
-ace => xs$ace_type(privilege_list => xs$name_list('connect'),
+ace => xs\$ace_type(privilege_list => xs\$name_list('connect'),
 principal_name => 'APEX_190100',
 principal_type => xs_acl.ptype_db));
 END;
@@ -65,7 +65,7 @@ END;
 BEGIN
 DBMS_NETWORK_ACL_ADMIN.APPEND_HOST_ACE(
 host => 'localhost',
-ace => xs$ace_type(privilege_list => xs$name_list('connect'),
+ace => xs\$ace_type(privilege_list => xs\$name_list('connect'),
 principal_name => 'APEX_190100',
 principal_type => xs_acl.ptype_db));
 END;
