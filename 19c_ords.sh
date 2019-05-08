@@ -1,10 +1,8 @@
 #ORDS webapp build
-
 su - oracle
-mkdir ords
+mkdir -p ords/conf
 cd ords
 unzip /tmp/ords-19.1.0.092.1545.zip
-mkdir conf
 java -jar ords.war setup
 
 
