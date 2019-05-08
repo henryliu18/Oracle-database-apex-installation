@@ -1,6 +1,6 @@
 #ORDS webapp build
 su - oracle
-mkdir -p ords/conf
+mkdir ords
 cd ords
 unzip /tmp/ords-19.1.0.092.1545.zip
 java -jar ords.war setup
@@ -9,7 +9,7 @@ java -jar ords.war setup
 This Oracle REST Data Services instance has not yet been configured.
 Please complete the following prompts
 
-Enter the location to store configuration data:/home/oracle/ords/conf/
+Enter the location to store configuration data:/home/oracle/
 Enter the name of the database server [localhost]:192.168.56.101
 Enter the database listen port [1521]:1521
 Enter 1 to specify the database service name, or 2 to specify the database SID [1]:1
