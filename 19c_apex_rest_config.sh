@@ -8,7 +8,7 @@ else
 fi
 
 
-#set password APEX_LISTENER and APEX_REST_PUBLIC_USER (Run this manually after setup apex is done)
+#Create the APEX_LISTENER and APEX_REST_PUBLIC_USER users by running the "apex_rest_config.sql" script. (Run this manually after Apex is installed to the database)
 echo "ORAENV_ASK=NO
 . oraenv
 
