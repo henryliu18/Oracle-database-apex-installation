@@ -10,6 +10,8 @@ elif [ "$1" = "apex" ]; then
   bash `dirname $0`/19c_apex.sh
 elif [ "$1" = "all" ]; then
   command bash `dirname $0`/18c_linux_x64.sh && command bash `dirname $0`/18c_netca.sh && command bash `dirname $0`/18c_dbca.sh && command bash `dirname $0`/19c_apex.sh || exit
+elif [ "$1" = "poc" ]; then
+  command bash `dirname $0`/18c_linux_x64.sh && command bash `dirname $0`/18c_netca.sh && command bash `dirname $0`/18c_dbca.sh && command bash `dirname $0`/19c_apex_xdb.sh || exit
 elif [ "$1" = "clean" ]; then
   command bash `dirname $0`/18c_linux_x64_clean.sh || exit
 else
@@ -19,6 +21,7 @@ else
   echo "  db     Install Oracle 18c, configure Oracle Listener and create container and pluggable databases"
   echo "  apex   Create Oracle tablespace and install apex 19c"
   echo "  all    Perform sw, db and apex"
+  echo "  poc    Perform sw, db and apex with xdb http"
   echo "  clean  Delete Oracle 18c, account, groups"
   exit 2
 fi
