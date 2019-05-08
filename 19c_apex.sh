@@ -2,8 +2,21 @@
 
 #
 # Tested CentOS 7
-# Apex installation, run as oracle user
+# Apex installation, run as root user
 #
+# What does this script do
+#
+# make sure pdb is read-write
+# make sure pdb state is saved
+# create APEX tablespace
+# install APEX 19.1 - apexins.sql
+# change APEX admin password
+# configure embedded PL/SQL Gateway - apex_epg_config.sql
+# unlock and change password of user ANONYMOUS
+# unlock and change password of user APEX_PUBLIC_USER by pass
+# create ACL to allow traffic out - DBMS_NETWORK_ACL_ADMIN.APPEND_HOST_ACE
+# append PDB entry in tnsnames.ora
+# configure Oracle REST Data Services - apex_rest_config.sql
 
 # Source env
 if [ -f `dirname $0`/env ]; then
