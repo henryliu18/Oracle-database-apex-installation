@@ -92,7 +92,11 @@ mkdir $APEX_HOME
 cd $APEX_HOME
 unzip -oq $APEX_SW
 cd apex
-$ORACLE_HOME/bin/sqlplus / as sysdba @$APEX_SQL" > $RUN_APEX
+$ORACLE_HOME/bin/sqlplus / as sysdba @$APEX_SQL
+$ORACLE_HOME/bin/sqlplus sys/SysPassword1@$PDB as sysdba<<EOF
+@apex_rest_config.sql pass pass
+exit;
+EOF" > $RUN_APEX
 chmod a+x $RUN_APEX
 su - $O_USER -c $RUN_APEX
 rm -f $RUN_APEX
