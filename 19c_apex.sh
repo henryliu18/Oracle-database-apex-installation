@@ -4,6 +4,17 @@
 # Tested CentOS 7
 # Apex installation, run as oracle user
 #
+# make pdb read-write
+# make pdb state saved
+# create APEX tablespace
+# install APEX 19.1 - apexins.sql
+# change APEX admin password
+# configure embedded PL/SQL Gateway - apex_epg_config.sql
+# unlock and change password of user ANONYMOUS
+# set XDB HTTP port to 8080
+# configure Oracle REST Data Services - apex_rest_config.sql
+# cleanup
+
 
 # Source env
 if [ -f `dirname $0`/env ]; then
@@ -37,8 +48,6 @@ BEGIN
     COMMIT;
 END;
 /
---can not silent
---@apex_rest_config.sql ApexPassword1 ApexPassword2
 @apex_epg_config.sql $APEX_HOME
 conn / as sysdba
 DECLARE
@@ -63,7 +72,12 @@ mkdir $APEX_HOME
 cd $APEX_HOME
 unzip -oq $APEX_SW
 cd apex
-$ORACLE_HOME/bin/sqlplus / as sysdba @$APEX_SQL" > $RUN_APEX
+$ORACLE_HOME/bin/sqlplus / as sysdba @$APEX_SQL
+$ORACLE_HOME/bin/sqlplus / as sysdba<<EOF
+alter session set container=$PDB;
+@apex_rest_config.sql pass pass
+exit;
+EOF" > $RUN_APEX
 chmod a+x $RUN_APEX
 su - $O_USER -c $RUN_APEX
 rm -f $RUN_APEX
