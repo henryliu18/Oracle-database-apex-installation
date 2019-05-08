@@ -6,8 +6,8 @@
 #
 # What does this script do
 #
-# make sure pdb is read-write
-# make sure pdb state is saved
+# make pdb read-write
+# make pdb state saved
 # create APEX tablespace
 # install APEX 19.1 - apexins.sql
 # change APEX admin password
@@ -15,7 +15,6 @@
 # unlock and change password of user ANONYMOUS
 # unlock and change password of user APEX_PUBLIC_USER by pass
 # create ACL to allow traffic out - DBMS_NETWORK_ACL_ADMIN.APPEND_HOST_ACE
-# append PDB entry in tnsnames.ora
 # configure Oracle REST Data Services - apex_rest_config.sql
 
 # Source env
@@ -50,8 +49,6 @@ BEGIN
     COMMIT;
 END;
 /
---can not silent
---@apex_rest_config.sql ApexPassword1 ApexPassword2
 @apex_epg_config.sql $APEX_HOME
 conn / as sysdba
 DECLARE
@@ -85,16 +82,6 @@ END;
 /
 exit" > $APEX_SQL
 
-# tnsnames.ora
-echo "$PDB =
-  (DESCRIPTION =
-    (ADDRESS = (PROTOCOL = TCP)(HOST = `hostname`)(PORT = 1521))
-    (CONNECT_DATA =
-      (SERVER = DEDICATED)
-      (SERVICE_NAME = $PDB)
-    )
-  )" >> $ORACLE_HOME/network/admin/tnsnames.ora
-
 echo "ORAENV_ASK=NO
 . oraenv
 
@@ -106,7 +93,8 @@ cd $APEX_HOME
 unzip -oq $APEX_SW
 cd apex
 $ORACLE_HOME/bin/sqlplus / as sysdba @$APEX_SQL
-$ORACLE_HOME/bin/sqlplus sys/SysPassword1@$PDB as sysdba<<EOF
+$ORACLE_HOME/bin/sqlplus / as sysdba<<EOF
+alter session set container=$PDB;
 @apex_rest_config.sql pass pass
 exit;
 EOF" > $RUN_APEX
