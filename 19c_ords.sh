@@ -38,7 +38,7 @@ user.tablespace.temp=TEMP
 sys.user=sys
 sys.password=$SYS_PASS\" > params/ords_params.properties
 
-java -jar ords.war configdir `dirname $ORDS_HOME`
+java -jar ords.war configdir `dirname $ORDS_HOME`/
 java -jar ords.war install simple -silent" > $RUN_ORDS
 
 chmod a+x $RUN_ORDS
