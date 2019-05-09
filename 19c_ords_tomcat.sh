@@ -5,12 +5,12 @@
 #ORDS_HOME
 #ORDS_ZIP
 
-# Source env
-if [ -f `dirname $0`/env ]; then
- . `dirname $0`/env
+# Source ordsenv
+if [ -f `dirname $0`/ordsenv ]; then
+ . `dirname $0`/ordsenv
 else
- echo "env file not found in `dirname $0`, run setup to create env file"
- echo "cd `dirname $0`;bash `dirname $0`/setup env"
+ echo "ordsenv file not found in `dirname $0`, run setup to create ordsenv file"
+ echo "cd `dirname $0`;bash `dirname $0`/setup ordsenv"
  exit 1
 fi
 
