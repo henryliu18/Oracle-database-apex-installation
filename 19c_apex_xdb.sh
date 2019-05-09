@@ -15,10 +15,14 @@ else
  exit 1
 fi
 
-ORAENV_ASK=NO
+echo "ORAENV_ASK=NO
 . oraenv
 $ORACLE_HOME/bin/sqlplus / as sysdba<<EOF
 alter session set container=$PDB;
 EXEC DBMS_XDB.sethttpport(8080);
 exit;
-EOF
+EOF" > ${RUN_APEX}_XDB
+chmod a+x ${RUN_APEX}_XDB
+su - $O_USER -c ${RUN_APEX}_XDB
+
+rm -f ${RUN_APEX}_XDB
