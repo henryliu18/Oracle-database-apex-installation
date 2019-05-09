@@ -64,6 +64,9 @@ ORACLE_HOME=${ORACLE_HOME:-\$ORACLE_BASE/product/18.0.0/dbhome_1}
 read -p "Oracle database files directory [/ora/db001]: " ORACLE_DB
 ORACLE_DB=${ORACLE_DB:-/ora/db001}
 
+read -p "Location of auto generated scripts during installation [/tmp]: " SCRIPT_DIR
+SCRIPT_DIR=${SCRIPT_DIR:-/tmp}
+
 read -p "Location of auto generated script for oracle db softwarae installation [/tmp/inst_ora_sw.sh]: " INST_ORACLE_SW_SHELL
 INST_ORACLE_SW_SHELL=${INST_ORACLE_SW_SHELL:-/tmp/inst_ora_sw.sh}
 
@@ -116,6 +119,7 @@ ORACLE_HOME=${ORACLE_HOME}
 ORACLE_DB=${ORACLE_DB}
 ORACLE_SW=${ORACLE_SW}
 ORDS_SW=${ORDS_SW}
+SCRIPT_DIR=${SCRIPT_DIR}
 INST_ORACLE_SW_SHELL=${INST_ORACLE_SW_SHELL}
 RUN_NETCA=${RUN_NETCA}
 RUN_DBCA=${RUN_DBCA}
