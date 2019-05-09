@@ -146,7 +146,7 @@ Oracle REST Data Services server info: jetty/9.4.z-SNAPSHOT<br />
 <img class="tomcat-logo pull-left noPrint" alt="Tomcat Home" src="http://tomcat.apache.org/res/images/tomcat.png"><br />
 #build tomcat server<br />
 unzip /tmp/apache-tomcat-9.0.19.zip <br />
-cd apache-tomcat-9.0.19/bin<br />
+cd /home/oracle/apache-tomcat-9.0.19/bin<br />
 chmod +x catalina.sh<br />
 <br />
 #deploy ords webapp to tomcat server<br />
