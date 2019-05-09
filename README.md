@@ -15,14 +15,16 @@ Oracle-database-apex-installation/setup env<br />
 Oracle-database-apex-installation/setup all<br />
 <br />
 Usage: setup [env|sw|db|apex|all|clean]<br />
-  env    Collect user inputs and create env file<br />
-  sw     Install Oracle 18c softwrae only<br />
-  db     Install Oracle 18c, configure Oracle Listener and create container and pluggable databases<br />
-  apex   Create Oracle tablespace and install apex 19c<br />
-  all    Perform sw, db and apex<br />
-  clean  Delete Oracle 18c, account, groups<br />
-
-
+  env     Collect user inputs and create env file<br />
+  sw      Install Oracle 18c softwrae only<br />
+  db      Install Oracle 18c, configure Oracle Listener and create container and pluggable databases<br />
+  apex    Create Oracle tablespace and install apex 19c<br />
+  all     Perform sw, db and apex with ords built<br />
+  poc     Perform sw, db and apex with xdb http<br />
+  clean   Delete Oracle 18c, account, groups<br />
+<br />
+<br />
+<br />
 <b>Apex Login page</b><br />
 http://localhost:8080/apex or<br /> 
 http://server-ip:8080/apex<br />
