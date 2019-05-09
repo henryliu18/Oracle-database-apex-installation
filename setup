@@ -5,17 +5,31 @@ if [ "$1" = "env" ]; then
 elif [ "$1" = "sw" ]; then
   bash `dirname $0`/18c_linux_x64.sh
 elif [ "$1" = "db" ]; then
-  command bash `dirname $0`/18c_linux_x64.sh && command bash `dirname $0`/18c_netca.sh && command bash `dirname $0`/18c_dbca.sh || exit
+  command bash `dirname $0`/18c_linux_x64.sh && \
+  command bash `dirname $0`/18c_netca.sh && \
+  command bash `dirname $0`/18c_dbca.sh || exit
 elif [ "$1" = "apex" ]; then
   bash `dirname $0`/19c_apex.sh
 elif [ "$1" = "all" ]; then
-  command bash `dirname $0`/18c_linux_x64.sh && command bash `dirname $0`/18c_netca.sh && command bash `dirname $0`/18c_dbca.sh && command bash `dirname $0`/19c_apex.sh && command bash `dirname $0`/19c_ords.sh && command bash `dirname $0`/19c_ords_post.sh || exit
+  command bash `dirname $0`/18c_linux_x64.sh && \
+  command bash `dirname $0`/18c_netca.sh && \
+  command bash `dirname $0`/18c_dbca.sh && \
+  command bash `dirname $0`/19c_apex.sh && \
+  command bash `dirname $0`/19c_ords.sh && \
+  command bash `dirname $0`/19c_ords_post.sh || exit
 elif [ "$1" = "poc" ]; then
-  command bash `dirname $0`/18c_linux_x64.sh && command bash `dirname $0`/18c_netca.sh && command bash `dirname $0`/18c_dbca.sh && command bash `dirname $0`/19c_apex.sh && command bash `dirname $0`/19c_apex_xdb.sh || exit
+  command bash `dirname $0`/18c_linux_x64.sh && \
+  command bash `dirname $0`/18c_netca.sh && \
+  command bash `dirname $0`/18c_dbca.sh && \
+  command bash `dirname $0`/19c_apex.sh && \
+  command bash `dirname $0`/19c_apex_xdb.sh || exit
 elif [ "$1" = "clean" ]; then
   command bash `dirname $0`/18c_linux_x64_clean.sh || exit
 elif [ "$1" = "test" ]; then
-  command bash `dirname $0`/18c_linux_x64.sh && command bash `dirname $0`/18c_netca.sh && command bash `dirname $0`/18c_dbca.sh && command bash `dirname $0`/19c_apex.sh || exit
+  command bash `dirname $0`/18c_linux_x64.sh && \
+  command bash `dirname $0`/18c_netca.sh && \
+  command bash `dirname $0`/18c_dbca.sh && \
+  command bash `dirname $0`/19c_apex.sh || exit
 else
   echo "setup 1.02"
   echo "Usage: setup [env|sw|db|apex|all|clean]"
