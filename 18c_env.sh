@@ -39,10 +39,10 @@ SYS_PASS=${SYS_PASS:-SysPassword1}
 read -p "SYSTEM password [SysPassword1]: " SYSTEM_PASS
 SYSTEM_PASS=${SYSTEM_PASS:-SysPassword1}
 
-read -p "PDBADMIN password [SysPassword1]: " PDBADMIN_PASS
+read -p "PDBADMIN password [PdbPassword1]: " PDBADMIN_PASS
 PDBADMIN_PASS=${PDBADMIN_PASS:-PdbPassword1}
 
-read -p "APEX and ORDS INTERNAL accounts password [ApexIntPassword1]: " APEX_PASS
+read -p "APEX and ORDS internal accounts password [ApexIntPassword1]: " APEX_PASS
 APEX_PASS=${APEX_PASS:-ApexIntPassword1}
 
 read -p "\$ORACLE_APP_ROOT (The root directory that will hold oracle database and oraInventory binaries) [/opt/app]: " ORACLE_APP_ROOT
