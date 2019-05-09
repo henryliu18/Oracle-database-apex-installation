@@ -14,8 +14,11 @@ else
  exit 1
 fi
 
+GREEN='\033[0;32m'
+OFF='\033[0m'
+
 cd $APEX_HOME/apex/images && zip -r /tmp/i.zip ./* && cd -
 
-echo "Oracle REST Database Service is built successfully, copy 2 files below to Tomcat server
-$ORDS_HOME/ords.war >>> cp $ORDS_HOME/ords.war \$TOMCAT_HOME/webapps/
-/tmp/i.zip >>> mkdir \$TOMCAT_HOME/webapps/i; cd \$TOMCAT_HOME/webapps/i; unzip /path/i.zip"
+echo -e "Oracle REST Database Service is built successfully, copy 2 files below to Tomcat server
+${GREEN}$ORDS_HOME/ords.war${OFF} >>> cp $ORDS_HOME/ords.war \$TOMCAT_HOME/webapps/
+${GREEN}/tmp/i.zip${OFF} >>> mkdir \$TOMCAT_HOME/webapps/i; cd \$TOMCAT_HOME/webapps/i; unzip /path/i.zip"
