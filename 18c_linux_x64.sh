@@ -180,18 +180,18 @@ unzip -oq $ORACLE_SW
     oracle.install.db.OSKMDBA_GROUP=dba                                        \
     oracle.install.db.OSRACDBA_GROUP=dba                                       \
     SECURITY_UPDATES_VIA_MYORACLESUPPORT=false                                 \
-    DECLINE_SECURITY_UPDATES=true" > $INST_ORACLE_SW_SHELL
+    DECLINE_SECURITY_UPDATES=true" > ${SCRIPT_DIR}_inst_oracle_sw
 
 # Adding execute permission to all users
-chmod a+x $INST_ORACLE_SW_SHELL
+chmod a+x ${SCRIPT_DIR}_inst_oracle_sw
 #chown $O_USER:oinstall $ORACLE_SW
 chmod a+r $ORACLE_SW
 
 # unzip; runInstaller as oracle
-su - $O_USER -c $INST_ORACLE_SW_SHELL
+su - $O_USER -c ${SCRIPT_DIR}_inst_oracle_sw
 
 # execute last 2 scripts as root
 $ORACLE_APP_ROOT/oraInventory/orainstRoot.sh
 $ORACLE_HOME/root.sh
 
-rm -f $INST_ORACLE_SW_SHELL
+rm -f ${SCRIPT_DIR}_inst_oracle_sw
