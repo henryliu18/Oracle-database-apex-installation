@@ -2,8 +2,6 @@
 
 if [ "$1" = "env" ]; then
   bash `dirname $0`/18c_env.sh
-elif [ "$1" = "ordsenv" ]; then
-  bash `dirname $0`/19c_ords_tomcat_env.sh
 elif [ "$1" = "sw" ]; then
   bash `dirname $0`/18c_linux_x64.sh
 elif [ "$1" = "db" ]; then
@@ -20,11 +18,10 @@ else
   echo "setup 1.02"
   echo "Usage: setup [env|sw|db|apex|all|clean]"
   echo "  env     Collect user inputs and create env file"
-  echo "  ordsenv Collect user inputs and create ordsenv file"
   echo "  sw      Install Oracle 18c softwrae only"
   echo "  db      Install Oracle 18c, configure Oracle Listener and create container and pluggable databases"
   echo "  apex    Create Oracle tablespace and install apex 19c"
-  echo "  all     Perform sw, db and apex"
+  echo "  all     Perform sw, db and apex with ords.war built"
   echo "  poc     Perform sw, db and apex with xdb http"
   echo "  clean   Delete Oracle 18c, account, groups"
   exit 2
