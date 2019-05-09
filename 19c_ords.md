@@ -143,7 +143,7 @@ Oracle REST Data Services server info: jetty/9.4.z-SNAPSHOT<br />
 2019-05-08 00:40:04.947:INFO:oejs.Server:main: Started @56827ms<br />
 <br />
 
-<img class="tomcat-logo pull-left noPrint" alt="Tomcat Home" src="res/images/tomcat.png">
+<img class="tomcat-logo pull-left noPrint" alt="Tomcat Home" src="http://tomcat.apache.org/res/images/tomcat.png">
 #build tomcat server
 unzip /tmp/apache-tomcat-9.0.19.zip 
 cd apache-tomcat-9.0.19/bin
