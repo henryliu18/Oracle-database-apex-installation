@@ -84,9 +84,9 @@ security.requestValidationFunction=wwv_flow_epg_include_modules.authorize<br />
 security.validationFunctionType=plsql<br />
 <br />
 May 08, 2019 12:40:01 AM<br />
-WARNING: *** jdbc.MaxLimit in configuration |apex|| is using a value of 10, this setting may not be sized adequately for a production environment ***<br />
+WARNING: *** jdbc.MaxLimit in configuration |apex|| is using a value of 10, this setting may not be sized adequately for a production environment *** <br />
 May 08, 2019 12:40:01 AM<br />
-WARNING: *** jdbc.InitialLimit in configuration |apex|| is using a value of 3, this setting may not be sized adequately for a production environment ***<br />
+WARNING: *** jdbc.InitialLimit in configuration |apex|| is using a value of 3, this setting may not be sized adequately for a production environment *** <br />
 May 08, 2019 12:40:03 AM<br />
 INFO: Configuration properties for: |apex|pu|<br />
 db.hostname=192.168.56.101<br />
@@ -99,9 +99,9 @@ security.requestValidationFunction=wwv_flow_epg_include_modules.authorize<br />
 security.validationFunctionType=plsql<br />
 <br />
 May 08, 2019 12:40:03 AM<br />
-WARNING: *** jdbc.MaxLimit in configuration |apex|pu| is using a value of 10, this setting may not be sized adequately for a production environment ***<br />
+WARNING: *** jdbc.MaxLimit in configuration |apex|pu| is using a value of 10, this setting may not be sized adequately for a production environment *** <br />
 May 08, 2019 12:40:03 AM<br />
-WARNING: *** jdbc.InitialLimit in configuration |apex|pu| is using a value of 3, this setting may not be sized adequately for a production environment ***<br />
+WARNING: *** jdbc.InitialLimit in configuration |apex|pu| is using a value of 3, this setting may not be sized adequately for a production environment *** <br />
 May 08, 2019 12:40:03 AM<br />
 INFO: Configuration properties for: |apex|al|<br />
 db.hostname=192.168.56.101<br />
@@ -114,9 +114,9 @@ security.requestValidationFunction=wwv_flow_epg_include_modules.authorize<br />
 security.validationFunctionType=plsql<br />
 <br />
 May 08, 2019 12:40:03 AM<br />
-WARNING: *** jdbc.MaxLimit in configuration |apex|al| is using a value of 10, this setting may not be sized adequately for a production environment ***<br />
+WARNING: *** jdbc.MaxLimit in configuration |apex|al| is using a value of 10, this setting may not be sized adequately for a production environment *** <br />
 May 08, 2019 12:40:03 AM<br />
-WARNING: *** jdbc.InitialLimit in configuration |apex|al| is using a value of 3, this setting may not be sized adequately for a production environment ***<br />
+WARNING: *** jdbc.InitialLimit in configuration |apex|al| is using a value of 3, this setting may not be sized adequately for a production environment *** <br />
 May 08, 2019 12:40:04 AM<br />
 INFO: Configuration properties for: |apex|rt|<br />
 db.hostname=192.168.56.101<br />
@@ -129,9 +129,9 @@ security.requestValidationFunction=wwv_flow_epg_include_modules.authorize<br />
 security.validationFunctionType=plsql<br />
 <br />
 May 08, 2019 12:40:04 AM<br />
-WARNING: *** jdbc.MaxLimit in configuration |apex|rt| is using a value of 10, this setting may not be sized adequately for a production environment ***<br />
+WARNING: *** jdbc.MaxLimit in configuration |apex|rt| is using a value of 10, this setting may not be sized adequately for a production environment *** <br />
 May 08, 2019 12:40:04 AM<br />
-WARNING: *** jdbc.InitialLimit in configuration |apex|rt| is using a value of 3, this setting may not be sized adequately for a production environment ***<br />
+WARNING: *** jdbc.InitialLimit in configuration |apex|rt| is using a value of 3, this setting may not be sized adequately for a production environment *** <br />
 May 08, 2019 12:40:04 AM<br />
 INFO: Oracle REST Data Services initialized<br />
 Oracle REST Data Services version : 19.1.0.r0921545<br />
@@ -142,3 +142,20 @@ Oracle REST Data Services server info: jetty/9.4.z-SNAPSHOT<br />
 2019-05-08 00:40:04.947:INFO:oejs.AbstractConnector:main: Started ServerConnector@4387b79e{HTTP/1.1,[http/1.1, h2c]}{0.0.0.0:8080}<br />
 2019-05-08 00:40:04.947:INFO:oejs.Server:main: Started @56827ms<br />
 <br />
+
+<img class="tomcat-logo pull-left noPrint" alt="Tomcat Home" src="http://tomcat.apache.org/res/images/tomcat.png"><br />
+#build tomcat server<br />
+unzip /tmp/apache-tomcat-9.0.19.zip <br />
+cd /home/oracle/apache-tomcat-9.0.19/bin<br />
+chmod +x catalina.sh<br />
+<br />
+#deploy ords webapp to tomcat server<br />
+cp /home/oracle/ords/ords.war /home/oracle/apache-tomcat-9.0.19/webapps<br />
+<br />
+#copy Apex images directory to tomcat server<br />
+cp -r /opt/app/oracle/apex19/apex/images/ /home/oracle/apache-tomcat-9.0.19/webapps/i/<br />
+<br />
+#start tomcat server<br />
+sh startup.sh<br />
+#shutdown tomcat server<br />
+sh shutdown.sh<br />

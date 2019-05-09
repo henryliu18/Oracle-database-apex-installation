@@ -27,6 +27,13 @@ if [ ! -f $APEX_SW ]; then
  exit 1
 fi
 
+read -p "Location of ORDS zip file [/tmp/ords-19.1.0.092.1545.zip]: " ORDS_SW
+ORDS_SW=${ORDS_SW:-/tmp/ords-19.1.0.092.1545.zip}
+if [ ! -f $ORDS_SW ]; then
+ echo -e "${RED}$ORDS_SW not found, exiting${OFF}"
+ exit 1
+fi
+
 read -p "Oracle account [oracle]: " O_USER
 O_USER=${O_USER:-oracle}
 
@@ -78,6 +85,9 @@ APEX_SQL=${APEX_SQL:-/tmp/inst_apex.sql}
 read -p "Location of auto generated script for apex installation [/tmp/run_apex]: " RUN_APEX
 RUN_APEX=${RUN_APEX:-/tmp/run_apex}
 
+read -p "Location of auto generated script for ORDS webapp build [/tmp/run_ords]: " RUN_ORDS
+RUN_ORDS=${RUN_ORDS:-/tmp/run_ords}
+
 read -p "\$ORACLE_SID - Database database name or container instance name for apex [cdb1]: " CDB
 CDB=${CDB:-cdb1}
 
@@ -89,6 +99,9 @@ APEX_TABLESPACE=${APEX_TABLESPACE:-APEX}
 
 read -p "Apex software home [\$ORACLE_BASE/apex19]: " APEX_HOME
 APEX_HOME=${APEX_HOME:-\$ORACLE_BASE/apex19}
+
+read -p "ORDS software home [/home/oracle/ords]: " ORDS_HOME
+ORDS_HOME=${ORDS_HOME:-/home/oracle/ords}
 
 echo "NIC=${NIC}
 O_USER=${O_USER}
@@ -102,6 +115,7 @@ ORACLE_BASE=${ORACLE_BASE}
 ORACLE_HOME=${ORACLE_HOME}
 ORACLE_DB=${ORACLE_DB}
 ORACLE_SW=${ORACLE_SW}
+ORDS_SW=${ORDS_SW}
 INST_ORACLE_SW_SHELL=${INST_ORACLE_SW_SHELL}
 RUN_NETCA=${RUN_NETCA}
 RUN_DBCA=${RUN_DBCA}
@@ -110,10 +124,12 @@ TMPORATAB=${TMPORATAB}
 APEX_SW=${APEX_SW}
 APEX_SQL=${APEX_SQL}
 RUN_APEX=${RUN_APEX}
+RUN_ORDS=${RUN_ORDS}
 PDB=${PDB}
 CDB=${CDB}
 APEX_TABLESPACE=${APEX_TABLESPACE}
-APEX_HOME=${APEX_HOME}" > `dirname $0`/env
+APEX_HOME=${APEX_HOME}
+ORDS_HOME=${ORDS_HOME}" > `dirname $0`/env
 
 if [ $? -eq 0 ]; then
  echo "**************************************************************"
