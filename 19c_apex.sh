@@ -13,7 +13,7 @@
 # change APEX admin password
 # configure embedded PL/SQL Gateway - apex_epg_config.sql
 # unlock and change password of user ANONYMOUS
-# unlock and change password of user APEX_PUBLIC_USER by pass
+# unlock and change password of user APEX_PUBLIC_USER by $APEX_PASS
 # create ACL to allow traffic out - DBMS_NETWORK_ACL_ADMIN.APPEND_HOST_ACE
 # configure Oracle REST Data Services - apex_rest_config.sql
 
@@ -61,7 +61,7 @@ END;
 /
 alter session set container=$PDB;
 ALTER USER APEX_PUBLIC_USER ACCOUNT UNLOCK;
-ALTER USER APEX_PUBLIC_USER IDENTIFIED BY pass;
+ALTER USER APEX_PUBLIC_USER IDENTIFIED BY $APEX_PASS;
 
 BEGIN
 DBMS_NETWORK_ACL_ADMIN.APPEND_HOST_ACE(
@@ -95,7 +95,7 @@ cd apex
 $ORACLE_HOME/bin/sqlplus / as sysdba @$APEX_SQL
 $ORACLE_HOME/bin/sqlplus / as sysdba<<EOF
 alter session set container=$PDB;
-@apex_rest_config.sql pass pass
+@apex_rest_config.sql $APEX_PASS $APEX_PASS
 exit;
 EOF" > $RUN_APEX
 chmod a+x $RUN_APEX
