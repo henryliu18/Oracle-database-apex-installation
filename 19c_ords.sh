@@ -39,8 +39,17 @@ sys.user=sys
 sys.password=$SYS_PASS\" > params/ords_params.properties
 
 java -jar ords.war configdir `dirname $ORDS_HOME`/
-java -jar ords.war install simple -silent" > $RUN_ORDS
+java -jar ords.war install simple -silent
+
+cd $APEX_HOME/apex/images && zip -r /tmp/i.zip ./* && cd -" > $RUN_ORDS
 
 chmod a+x $RUN_ORDS
 su - $O_USER -c $RUN_ORDS
 rm -f $RUN_ORDS
+
+GREEN='\033[0;32m'
+OFF='\033[0m'
+
+echo -e "Oracle REST Database Service is built successfully, copy 2 files below to Tomcat server
+${GREEN}$ORDS_HOME/ords.war${OFF} >>> cp $ORDS_HOME/ords.war \$TOMCAT_HOME/webapps/
+${GREEN}/tmp/i.zip${OFF} >>> mkdir \$TOMCAT_HOME/webapps/i; cd \$TOMCAT_HOME/webapps/i; unzip /tmp/i.zip"
