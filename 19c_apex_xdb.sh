@@ -15,6 +15,8 @@ else
  exit 1
 fi
 
+ORAENV_ASK=NO
+. oraenv
 $ORACLE_HOME/bin/sqlplus / as sysdba<<EOF
 alter session set container=$PDB;
 EXEC DBMS_XDB.sethttpport(8080);
