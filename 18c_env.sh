@@ -33,6 +33,18 @@ O_USER=${O_USER:-oracle}
 read -p "Oracle account's password [oracle123]: " O_PASS
 O_PASS=${O_PASS:-oracle123}
 
+read -p "SYS password [SysPassword1]: " SYS_PASS
+SYS_PASS=${SYS_PASS:-SysPassword1}
+
+read -p "SYSTEM password [SysPassword1]: " SYSTEM_PASS
+SYSTEM_PASS=${SYSTEM_PASS:-SysPassword1}
+
+read -p "PDBADMIN password [PdbPassword1]: " PDBADMIN_PASS
+PDBADMIN_PASS=${PDBADMIN_PASS:-PdbPassword1}
+
+read -p "APEX and ORDS internal accounts password [ApexIntPassword1]: " APEX_PASS
+APEX_PASS=${APEX_PASS:-ApexIntPassword1}
+
 read -p "\$ORACLE_APP_ROOT (The root directory that will hold oracle database and oraInventory binaries) [/opt/app]: " ORACLE_APP_ROOT
 ORACLE_APP_ROOT=${ORACLE_APP_ROOT:-/opt/app}
 
@@ -81,6 +93,10 @@ APEX_HOME=${APEX_HOME:-\$ORACLE_BASE/apex19}
 echo "NIC=${NIC}
 O_USER=${O_USER}
 O_PASS=${O_PASS}
+SYS_PASS=${SYS_PASS}
+SYSTEM_PASS=${SYSTEM_PASS}
+PDBADMIN_PASS=${PDBADMIN_PASS}
+APEX_PASS=${APEX_PASS}
 ORACLE_APP_ROOT=${ORACLE_APP_ROOT}
 ORACLE_BASE=${ORACLE_BASE}
 ORACLE_HOME=${ORACLE_HOME}

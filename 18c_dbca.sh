@@ -20,12 +20,12 @@ echo "dbca -silent -createDatabase \
      -sid \$ORACLE_SID \
      -responseFile NO_VALUE \
      -characterSet AL32UTF8 \
-     -sysPassword SysPassword1 \
-     -systemPassword SysPassword1 \
+     -sysPassword "$SYS_PASS" \
+     -systemPassword "$SYSTEM_PASS" \
      -createAsContainerDatabase true \
      -numberOfPDBs 1 \
      -pdbName \$PDB_NAME \
-     -pdbAdminPassword PdbPassword1 \
+     -pdbAdminPassword "$PDBADMIN_PASS" \
      -databaseType MULTIPURPOSE \
      -automaticMemoryManagement false \
      -totalMemory 1500 \
