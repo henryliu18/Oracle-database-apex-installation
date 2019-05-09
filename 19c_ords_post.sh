@@ -17,5 +17,5 @@ fi
 cd $APEX_HOME/apex/images && zip -r /tmp/i.zip ./* && cd -
 
 echo "Oracle REST Database Service is built successfully, copy 2 files below to Tomcat server
-$ORDS_HOME/ords.war >>> cp ords.war \$TOMCAT_HOME/webapps/
+$ORDS_HOME/ords.war >>> cp $ORDS_HOME/ords.war \$TOMCAT_HOME/webapps/
 /tmp/i.zip >>> mkdir \$TOMCAT_HOME/webapps/i; cd \$TOMCAT_HOME/webapps/i; unzip /path/i.zip"
