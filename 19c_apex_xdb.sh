@@ -24,5 +24,4 @@ exit;
 EOF" > ${RUN_APEX}_XDB
 chmod a+x ${RUN_APEX}_XDB
 su - $O_USER -c ${RUN_APEX}_XDB
-
 rm -f ${RUN_APEX}_XDB
