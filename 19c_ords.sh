@@ -39,8 +39,8 @@ sys.user=sys
 sys.password=$SYS_PASS\" > params/ords_params.properties
 
 java -jar ords.war configdir /home/oracle/
-java -jar ords.war install simple -silent" > /tmp/run_ords
+java -jar ords.war install simple -silent" > $RUN_ORDS
 
-chmod a+x /tmp/run_ords
-su - $O_USER -c /tmp/run_ords
-rm -f /tmp/run_ords
+chmod a+x $RUN_ORDS
+su - $O_USER -c $RUN_ORDS
+rm -f $RUN_ORDS
