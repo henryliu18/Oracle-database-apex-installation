@@ -143,19 +143,19 @@ Oracle REST Data Services server info: jetty/9.4.z-SNAPSHOT<br />
 2019-05-08 00:40:04.947:INFO:oejs.Server:main: Started @56827ms<br />
 <br />
 
-<img class="tomcat-logo pull-left noPrint" alt="Tomcat Home" src="http://tomcat.apache.org/res/images/tomcat.png">
-#build tomcat server
-unzip /tmp/apache-tomcat-9.0.19.zip 
-cd apache-tomcat-9.0.19/bin
-chmod +x catalina.sh
-
-#deploy ords webapp to tomcat server
-cp /home/oracle/ords/ords.war /home/oracle/apache-tomcat-9.0.19/webapps
-
-#copy Apex images directory to tomcat server
-cp -r /opt/app/oracle/apex19/apex/images/ /home/oracle/apache-tomcat-9.0.19/webapps/i/
-
-#start tomcat server
-sh startup.sh
-#shutdown tomcat server
-sh shutdown.sh
+<img class="tomcat-logo pull-left noPrint" alt="Tomcat Home" src="http://tomcat.apache.org/res/images/tomcat.png"><br />
+#build tomcat server<br />
+unzip /tmp/apache-tomcat-9.0.19.zip <br />
+cd apache-tomcat-9.0.19/bin<br />
+chmod +x catalina.sh<br />
+<br />
+#deploy ords webapp to tomcat server<br />
+cp /home/oracle/ords/ords.war /home/oracle/apache-tomcat-9.0.19/webapps<br />
+<br />
+#copy Apex images directory to tomcat server<br />
+cp -r /opt/app/oracle/apex19/apex/images/ /home/oracle/apache-tomcat-9.0.19/webapps/i/<br />
+<br />
+#start tomcat server<br />
+sh startup.sh<br />
+#shutdown tomcat server<br />
+sh shutdown.sh<br />
