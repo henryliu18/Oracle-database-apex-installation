@@ -85,6 +85,9 @@ APEX_SQL=${APEX_SQL:-/tmp/inst_apex.sql}
 read -p "Location of auto generated script for apex installation [/tmp/run_apex]: " RUN_APEX
 RUN_APEX=${RUN_APEX:-/tmp/run_apex}
 
+read -p "Location of auto generated script for ORDS webapp build [/tmp/run_ords]: " RUN_ORDS
+RUN_ORDS=${RUN_ORDS:-/tmp/run_ords}
+
 read -p "\$ORACLE_SID - Database database name or container instance name for apex [cdb1]: " CDB
 CDB=${CDB:-cdb1}
 
@@ -121,6 +124,7 @@ TMPORATAB=${TMPORATAB}
 APEX_SW=${APEX_SW}
 APEX_SQL=${APEX_SQL}
 RUN_APEX=${RUN_APEX}
+RUN_ORDS=${RUN_ORDS}
 PDB=${PDB}
 CDB=${CDB}
 APEX_TABLESPACE=${APEX_TABLESPACE}
