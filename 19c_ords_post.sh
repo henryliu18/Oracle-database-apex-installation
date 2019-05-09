@@ -14,7 +14,8 @@ else
  exit 1
 fi
 
-echo "Oracle REST Database Service is built successfully, cove 2 files below to Tomcat server under \$TOMCAT_HOME/webapps
-$ORDS_HOME/ords.war
-$APEX_HOME/apex/images has been zipped to $ORDS_HOME/i.zip
-you need to unzip i.zip to Tomcat server under \$TOMCAT_HOME/webapps/i"
+cd $APEX_HOME/apex/images && zip -r /tmp/i.zip ./* && cd -
+
+echo "Oracle REST Database Service is built successfully, copy 2 files below to Tomcat server
+$ORDS_HOME/ords.war >>> cp ords.war \$TOMCAT_HOME/webapps/
+/tmp/i.zip >>> mkdir \$TOMCAT_HOME/webapps/i; cd \$TOMCAT_HOME/webapps/i; unzip /path/i.zip"
