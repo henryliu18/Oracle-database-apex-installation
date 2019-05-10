@@ -21,7 +21,7 @@ $ORACLE_HOME/bin/sqlplus / as sysdba<<EOF
 alter session set container=$PDB;
 EXEC DBMS_XDB.sethttpport(8080);
 exit;
-EOF" > ${RUN_APEX}_XDB
-chmod a+x ${RUN_APEX}_XDB
-su - $O_USER -c ${RUN_APEX}_XDB
-rm -f ${RUN_APEX}_XDB
+EOF" > ${SCRIPT_DIR}/run_xdb
+chmod a+x ${SCRIPT_DIR}/run_xdb
+su - $O_USER -c ${SCRIPT_DIR}/run_xdb
+rm -f ${SCRIPT_DIR}/run_xdb
