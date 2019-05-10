@@ -80,7 +80,7 @@ principal_name => 'APEX_190100',
 principal_type => xs_acl.ptype_db));
 END;
 /
-exit" > $APEX_SQL
+exit" > ${SCRIPT_DIR}/inst_apex.sql
 
 echo "ORAENV_ASK=NO
 . oraenv
@@ -92,13 +92,13 @@ mkdir $APEX_HOME
 cd $APEX_HOME
 unzip -oq $APEX_SW
 cd apex
-$ORACLE_HOME/bin/sqlplus / as sysdba @$APEX_SQL
+$ORACLE_HOME/bin/sqlplus / as sysdba @${SCRIPT_DIR}/inst_apex.sql
 $ORACLE_HOME/bin/sqlplus / as sysdba<<EOF
 alter session set container=$PDB;
 @apex_rest_config.sql $APEX_PASS $APEX_PASS
 exit;
-EOF" > $RUN_APEX
-chmod a+x $RUN_APEX
-su - $O_USER -c $RUN_APEX
-rm -f $RUN_APEX
-rm -f $APEX_SQL
+EOF" > ${SCRIPT_DIR}/run_apex
+chmod a+x ${SCRIPT_DIR}/run_apex
+su - $O_USER -c ${SCRIPT_DIR}/run_apex
+rm -f ${SCRIPT_DIR}/run_apex
+rm -f ${SCRIPT_DIR}/inst_apex.sql
