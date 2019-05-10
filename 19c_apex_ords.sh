@@ -41,11 +41,11 @@ sys.password=$SYS_PASS\" > params/ords_params.properties
 java -jar ords.war configdir `dirname $ORDS_HOME`/
 java -jar ords.war install simple -silent
 
-cd $APEX_HOME/apex/images && zip -r /tmp/i.zip ./* && cd -" > $RUN_ORDS
+cd $APEX_HOME/apex/images && zip -r /tmp/i.zip ./* && cd -" > ${SCRIPT_DIR}/run_ords
 
-chmod a+x $RUN_ORDS
-su - $O_USER -c $RUN_ORDS
-rm -f $RUN_ORDS
+chmod a+x ${SCRIPT_DIR}/run_ords
+su - $O_USER -c ${SCRIPT_DIR}/run_ords
+rm -f ${SCRIPT_DIR}/run_ords
 
 GREEN='\033[0;32m'
 OFF='\033[0m'
