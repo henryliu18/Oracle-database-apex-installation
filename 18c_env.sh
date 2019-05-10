@@ -4,6 +4,7 @@ RED='\033[0;31m'
 GREEN='\033[0;32m'
 OFF='\033[0m'
 
+clear
 ifconfig -a|grep 'inet\|flags'
 read -p "Servicable network interface [eth0]: " NIC
 NIC=${NIC:-eth0}
@@ -13,6 +14,7 @@ if [ $? -ne 0 ]; then
  exit 1
 fi
 
+clear
 read -p "Oracle software zip file [/tmp/LINUX.X64_180000_db_home.zip]: " ORACLE_SW
 ORACLE_SW=${ORACLE_SW:-/tmp/LINUX.X64_180000_db_home.zip}
 if [ ! -f $ORACLE_SW ]; then
