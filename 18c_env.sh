@@ -17,21 +17,21 @@ fi
 
 clear
 echo "Software (zip file) location"
-read -p "Oracle software zip file [/tmp/LINUX.X64_180000_db_home.zip]: " ORACLE_SW
+read -p "Oracle Database zip file [/tmp/LINUX.X64_180000_db_home.zip]: " ORACLE_SW
 ORACLE_SW=${ORACLE_SW:-/tmp/LINUX.X64_180000_db_home.zip}
 if [ ! -f $ORACLE_SW ]; then
  echo -e "${RED}$ORACLE_SW not found, exiting${OFF}"
  exit 1
 fi
 
-read -p "Location of Apex zip file [/tmp/apex_19.1_en.zip]: " APEX_SW
+read -p "Apex zip file [/tmp/apex_19.1_en.zip]: " APEX_SW
 APEX_SW=${APEX_SW:-/tmp/apex_19.1_en.zip}
 if [ ! -f $APEX_SW ]; then
  echo -e "${RED}$APEX_SW not found, exiting${OFF}"
  exit 1
 fi
 
-read -p "Location of ORDS zip file [/tmp/ords-19.1.0.092.1545.zip]: " ORDS_SW
+read -p "ORDS zip file [/tmp/ords-19.1.0.092.1545.zip]: " ORDS_SW
 ORDS_SW=${ORDS_SW:-/tmp/ords-19.1.0.092.1545.zip}
 if [ ! -f $ORDS_SW ]; then
  echo -e "${RED}$ORDS_SW not found, exiting${OFF}"
@@ -46,17 +46,17 @@ O_USER=${O_USER:-oracle}
 read -p "Oracle account's password [oracle123]: " O_PASS
 O_PASS=${O_PASS:-oracle123}
 
-read -p "SYS password [SysPassword1]: " SYS_PASS
+read -p "(DB) SYS password [SysPassword1]: " SYS_PASS
 SYS_PASS=${SYS_PASS:-SysPassword1}
 
-read -p "SYSTEM password [SysPassword1]: " SYSTEM_PASS
+read -p "(DB) SYSTEM password [SysPassword1]: " SYSTEM_PASS
 SYSTEM_PASS=${SYSTEM_PASS:-SysPassword1}
 
-read -p "PDBADMIN password [PdbPassword1]: " PDBADMIN_PASS
+read -p "(DB) PDBADMIN password [PdbPassword1]: " PDBADMIN_PASS
 PDBADMIN_PASS=${PDBADMIN_PASS:-PdbPassword1}
 
-read -p "APEX and ORDS internal accounts password [ApexIntPassword1]: " APEX_PASS
-APEX_PASS=${APEX_PASS:-ApexIntPassword1}
+read -p "(DB) APEX and ORDS password [ApexOrdsPass1]: " APEX_PASS
+APEX_PASS=${APEX_PASS:-ApexOrdsPass1}
 
 clear
 echo "Installation location"
