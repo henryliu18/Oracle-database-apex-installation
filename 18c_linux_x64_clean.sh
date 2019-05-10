@@ -21,6 +21,7 @@ rm -rf $ORACLE_APP_ROOT
 rm -rf /opt/ORCLfmap
 rm -rf /tmp/InstallActions*
 rm -rf /tmp/hsperfdata*
+rm -rf /tmp/CVU*
 rm -f /etc/oraInst.loc
 rm -f /etc/oratab
 rm -f /usr/local/bin/coraenv
@@ -32,9 +33,6 @@ userdel -r $O_USER
 groupdel oinstall
 groupdel dba
 groupdel oper
-
-rm -f /tmp/inst_ora_sw.sh
-rm -f /tmp/inst_apex.sql
 
 echo "127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
 ::1         localhost localhost.localdomain localhost6 localhost6.localdomain6" > /etc/hosts

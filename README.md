@@ -12,16 +12,16 @@ Apex 19c is defined in env $APEX_SW<br />
 <b>Installation (as root)</b><br />
 git clone https://github.com/henryliu18/Oracle-database-apex-installation.git<br />
 Oracle-database-apex-installation/setup env<br />
-Oracle-database-apex-installation/setup all<br />
+Oracle-database-apex-installation/setup apexlocal (for POC)<br />
+Oracle-database-apex-installation/setup apexords (for PROD)<br />
 <br />
-Usage: setup [env|sw|db|apex|all|clean]<br />
-  env     Collect user inputs and create env file<br />
-  sw      Install Oracle 18c softwrae only<br />
-  db      Install Oracle 18c, configure Oracle Listener and create container and pluggable databases<br />
-  apex    Create Oracle tablespace and install apex 19c<br />
-  all     Perform sw, db and apex with ords built<br />
-  poc     Perform sw, db and apex with xdb http<br />
-  clean   Delete Oracle 18c, account, groups<br />
+Usage: setup [env|sw|db|apexords|apexlocal|clean]<br />
+  env           Collect user inputs and create env file<br />
+  sw            Install Oracle 18c softwrae only<br />
+  db            Install Oracle 18c, configure Oracle Listener and create container and pluggable databases<br />
+  apexords      Perform sw, db and apex with ords built<br />
+  apexlocal     Perform sw, db and apex with xdb http<br />
+  clean         Delete Oracle 18c, account, groups<br />
 <br />
 <br />
 <br />

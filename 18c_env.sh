@@ -4,6 +4,8 @@ RED='\033[0;31m'
 GREEN='\033[0;32m'
 OFF='\033[0m'
 
+clear
+echo "Networking"
 ifconfig -a|grep 'inet\|flags'
 read -p "Servicable network interface [eth0]: " NIC
 NIC=${NIC:-eth0}
@@ -13,45 +15,51 @@ if [ $? -ne 0 ]; then
  exit 1
 fi
 
-read -p "Oracle software zip file [/tmp/LINUX.X64_180000_db_home.zip]: " ORACLE_SW
+clear
+echo "Software (zip file) location"
+read -p "Oracle Database zip file [/tmp/LINUX.X64_180000_db_home.zip]: " ORACLE_SW
 ORACLE_SW=${ORACLE_SW:-/tmp/LINUX.X64_180000_db_home.zip}
 if [ ! -f $ORACLE_SW ]; then
  echo -e "${RED}$ORACLE_SW not found, exiting${OFF}"
  exit 1
 fi
 
-read -p "Location of Apex zip file [/tmp/apex_19.1_en.zip]: " APEX_SW
+read -p "Apex zip file [/tmp/apex_19.1_en.zip]: " APEX_SW
 APEX_SW=${APEX_SW:-/tmp/apex_19.1_en.zip}
 if [ ! -f $APEX_SW ]; then
  echo -e "${RED}$APEX_SW not found, exiting${OFF}"
  exit 1
 fi
 
-read -p "Location of ORDS zip file [/tmp/ords-19.1.0.092.1545.zip]: " ORDS_SW
+read -p "ORDS zip file [/tmp/ords-19.1.0.092.1545.zip]: " ORDS_SW
 ORDS_SW=${ORDS_SW:-/tmp/ords-19.1.0.092.1545.zip}
 if [ ! -f $ORDS_SW ]; then
  echo -e "${RED}$ORDS_SW not found, exiting${OFF}"
  exit 1
 fi
 
+clear
+echo "Security"
 read -p "Oracle account [oracle]: " O_USER
 O_USER=${O_USER:-oracle}
 
 read -p "Oracle account's password [oracle123]: " O_PASS
 O_PASS=${O_PASS:-oracle123}
 
-read -p "SYS password [SysPassword1]: " SYS_PASS
+read -p "(DB) SYS password [SysPassword1]: " SYS_PASS
 SYS_PASS=${SYS_PASS:-SysPassword1}
 
-read -p "SYSTEM password [SysPassword1]: " SYSTEM_PASS
+read -p "(DB) SYSTEM password [SysPassword1]: " SYSTEM_PASS
 SYSTEM_PASS=${SYSTEM_PASS:-SysPassword1}
 
-read -p "PDBADMIN password [PdbPassword1]: " PDBADMIN_PASS
+read -p "(DB) PDBADMIN password [PdbPassword1]: " PDBADMIN_PASS
 PDBADMIN_PASS=${PDBADMIN_PASS:-PdbPassword1}
 
-read -p "APEX and ORDS internal accounts password [ApexIntPassword1]: " APEX_PASS
-APEX_PASS=${APEX_PASS:-ApexIntPassword1}
+read -p "(DB) APEX and ORDS password [ApexOrdsPass1]: " APEX_PASS
+APEX_PASS=${APEX_PASS:-ApexOrdsPass1}
 
+clear
+echo "Installation location"
 read -p "\$ORACLE_APP_ROOT (The root directory that will hold oracle database and oraInventory binaries) [/opt/app]: " ORACLE_APP_ROOT
 ORACLE_APP_ROOT=${ORACLE_APP_ROOT:-/opt/app}
 
@@ -64,30 +72,20 @@ ORACLE_HOME=${ORACLE_HOME:-\$ORACLE_BASE/product/18.0.0/dbhome_1}
 read -p "Oracle database files directory [/ora/db001]: " ORACLE_DB
 ORACLE_DB=${ORACLE_DB:-/ora/db001}
 
-read -p "Location of auto generated script for oracle db softwarae installation [/tmp/inst_ora_sw.sh]: " INST_ORACLE_SW_SHELL
-INST_ORACLE_SW_SHELL=${INST_ORACLE_SW_SHELL:-/tmp/inst_ora_sw.sh}
+read -p "Apex software home [\$ORACLE_BASE/apex19]: " APEX_HOME
+APEX_HOME=${APEX_HOME:-\$ORACLE_BASE/apex19}
 
-read -p "Location of auto generated script for netca [/tmp/run_netca]: " RUN_NETCA
-RUN_NETCA=${RUN_NETCA:-/tmp/run_netca}
+read -p "ORDS software home [/home/oracle/ords]: " ORDS_HOME
+ORDS_HOME=${ORDS_HOME:-/home/oracle/ords}
 
-read -p "Location of auto generated script for dbca [/tmp/run_dbca]: " RUN_DBCA
-RUN_DBCA=${RUN_DBCA:-/tmp/run_dbca}
+read -p "Location of auto generated scripts during installation [/tmp]: " SCRIPT_DIR
+SCRIPT_DIR=${SCRIPT_DIR:-/tmp}
 
 read -p "Location of oratab [/etc/oratab]: " ORATAB
 ORATAB=${ORATAB:-/etc/oratab}
 
-read -p "Location of temporary oratab [/tmp/oratab]: " TMPORATAB
-TMPORATAB=${TMPORATAB:-/tmp/oratab}
-
-read -p "Location of Apex sql file for installation [/tmp/inst_apex.sql]: " APEX_SQL
-APEX_SQL=${APEX_SQL:-/tmp/inst_apex.sql}
-
-read -p "Location of auto generated script for apex installation [/tmp/run_apex]: " RUN_APEX
-RUN_APEX=${RUN_APEX:-/tmp/run_apex}
-
-read -p "Location of auto generated script for ORDS webapp build [/tmp/run_ords]: " RUN_ORDS
-RUN_ORDS=${RUN_ORDS:-/tmp/run_ords}
-
+clear
+echo "Oracle Database"
 read -p "\$ORACLE_SID - Database database name or container instance name for apex [cdb1]: " CDB
 CDB=${CDB:-cdb1}
 
@@ -97,11 +95,6 @@ PDB=${PDB:-pdb1}
 read -p "Tablespace name for apex [APEX]: " APEX_TABLESPACE
 APEX_TABLESPACE=${APEX_TABLESPACE:-APEX}
 
-read -p "Apex software home [\$ORACLE_BASE/apex19]: " APEX_HOME
-APEX_HOME=${APEX_HOME:-\$ORACLE_BASE/apex19}
-
-read -p "ORDS software home [/home/oracle/ords]: " ORDS_HOME
-ORDS_HOME=${ORDS_HOME:-/home/oracle/ords}
 
 echo "NIC=${NIC}
 O_USER=${O_USER}
@@ -116,15 +109,9 @@ ORACLE_HOME=${ORACLE_HOME}
 ORACLE_DB=${ORACLE_DB}
 ORACLE_SW=${ORACLE_SW}
 ORDS_SW=${ORDS_SW}
-INST_ORACLE_SW_SHELL=${INST_ORACLE_SW_SHELL}
-RUN_NETCA=${RUN_NETCA}
-RUN_DBCA=${RUN_DBCA}
+SCRIPT_DIR=${SCRIPT_DIR}
 ORATAB=${ORATAB}
-TMPORATAB=${TMPORATAB}
 APEX_SW=${APEX_SW}
-APEX_SQL=${APEX_SQL}
-RUN_APEX=${RUN_APEX}
-RUN_ORDS=${RUN_ORDS}
 PDB=${PDB}
 CDB=${CDB}
 APEX_TABLESPACE=${APEX_TABLESPACE}

@@ -33,13 +33,13 @@ echo "dbca -silent -createDatabase \
      -datafileDestination "$ORACLE_DB" \
      -redoLogFileSize 50 \
      -emConfiguration NONE \
-     -ignorePreReqs" > $RUN_DBCA
-chmod a+x $RUN_DBCA
-su - $O_USER -c $RUN_DBCA
-rm -f $RUN_DBCA
+     -ignorePreReqs" > ${SCRIPT_DIR}/run_dbca
+chmod a+x ${SCRIPT_DIR}/run_dbca
+su - $O_USER -c ${SCRIPT_DIR}/run_dbca
+rm -f ${SCRIPT_DIR}/run_dbca
 
 # Change auto start flag from N to Y
-sed -e "/$CDB/s/^/#/g" $ORATAB > $TMPORATAB
-grep "$CDB.*:N" $ORATAB | sed s'/..$/:Y/' >> $TMPORATAB
-cat $TMPORATAB > $ORATAB
-rm -f $TMPORATAB
+sed -e "/$CDB/s/^/#/g" $ORATAB > ${SCRIPT_DIR}/tmporatab
+grep "$CDB.*:N" $ORATAB | sed s'/..$/:Y/' >> ${SCRIPT_DIR}/tmporatab
+cat ${SCRIPT_DIR}/tmporatab > $ORATAB
+rm -f ${SCRIPT_DIR}/tmporatab
