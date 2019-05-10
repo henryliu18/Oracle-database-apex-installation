@@ -67,29 +67,29 @@ ORACLE_DB=${ORACLE_DB:-/ora/db001}
 read -p "Location of auto generated scripts during installation [/tmp]: " SCRIPT_DIR
 SCRIPT_DIR=${SCRIPT_DIR:-/tmp}
 
-read -p "Location of auto generated script for oracle db softwarae installation [/tmp/inst_ora_sw.sh]: " INST_ORACLE_SW_SHELL
-INST_ORACLE_SW_SHELL=${INST_ORACLE_SW_SHELL:-/tmp/inst_ora_sw.sh}
+#read -p "Location of auto generated script for oracle db softwarae installation [/tmp/inst_ora_sw.sh]: " INST_ORACLE_SW_SHELL
+#INST_ORACLE_SW_SHELL=${INST_ORACLE_SW_SHELL:-/tmp/inst_ora_sw.sh}
 
-read -p "Location of auto generated script for netca [/tmp/run_netca]: " RUN_NETCA
-RUN_NETCA=${RUN_NETCA:-/tmp/run_netca}
+#read -p "Location of auto generated script for netca [/tmp/run_netca]: " RUN_NETCA
+#RUN_NETCA=${RUN_NETCA:-/tmp/run_netca}
 
-read -p "Location of auto generated script for dbca [/tmp/run_dbca]: " RUN_DBCA
-RUN_DBCA=${RUN_DBCA:-/tmp/run_dbca}
+#read -p "Location of auto generated script for dbca [/tmp/run_dbca]: " RUN_DBCA
+#RUN_DBCA=${RUN_DBCA:-/tmp/run_dbca}
 
 read -p "Location of oratab [/etc/oratab]: " ORATAB
 ORATAB=${ORATAB:-/etc/oratab}
 
-read -p "Location of temporary oratab [/tmp/oratab]: " TMPORATAB
-TMPORATAB=${TMPORATAB:-/tmp/oratab}
+#read -p "Location of temporary oratab [/tmp/oratab]: " TMPORATAB
+#TMPORATAB=${TMPORATAB:-/tmp/oratab}
 
-read -p "Location of Apex sql file for installation [/tmp/inst_apex.sql]: " APEX_SQL
-APEX_SQL=${APEX_SQL:-/tmp/inst_apex.sql}
+#read -p "Location of Apex sql file for installation [/tmp/inst_apex.sql]: " APEX_SQL
+#APEX_SQL=${APEX_SQL:-/tmp/inst_apex.sql}
 
-read -p "Location of auto generated script for apex installation [/tmp/run_apex]: " RUN_APEX
-RUN_APEX=${RUN_APEX:-/tmp/run_apex}
+#read -p "Location of auto generated script for apex installation [/tmp/run_apex]: " RUN_APEX
+#RUN_APEX=${RUN_APEX:-/tmp/run_apex}
 
-read -p "Location of auto generated script for ORDS webapp build [/tmp/run_ords]: " RUN_ORDS
-RUN_ORDS=${RUN_ORDS:-/tmp/run_ords}
+#read -p "Location of auto generated script for ORDS webapp build [/tmp/run_ords]: " RUN_ORDS
+#RUN_ORDS=${RUN_ORDS:-/tmp/run_ords}
 
 read -p "\$ORACLE_SID - Database database name or container instance name for apex [cdb1]: " CDB
 CDB=${CDB:-cdb1}
@@ -120,15 +120,15 @@ ORACLE_DB=${ORACLE_DB}
 ORACLE_SW=${ORACLE_SW}
 ORDS_SW=${ORDS_SW}
 SCRIPT_DIR=${SCRIPT_DIR}
-INST_ORACLE_SW_SHELL=${INST_ORACLE_SW_SHELL}
-RUN_NETCA=${RUN_NETCA}
-RUN_DBCA=${RUN_DBCA}
+#INST_ORACLE_SW_SHELL=${INST_ORACLE_SW_SHELL}
+#RUN_NETCA=${RUN_NETCA}
+#RUN_DBCA=${RUN_DBCA}
 ORATAB=${ORATAB}
-TMPORATAB=${TMPORATAB}
+#TMPORATAB=${TMPORATAB}
 APEX_SW=${APEX_SW}
-APEX_SQL=${APEX_SQL}
-RUN_APEX=${RUN_APEX}
-RUN_ORDS=${RUN_ORDS}
+#APEX_SQL=${APEX_SQL}
+#RUN_APEX=${RUN_APEX}
+#RUN_ORDS=${RUN_ORDS}
 PDB=${PDB}
 CDB=${CDB}
 APEX_TABLESPACE=${APEX_TABLESPACE}
