@@ -1,0 +1,26 @@
+/etc/init.d/iptables start
+#Can not directly access port 8080 on the server, port 80 works.  However oracle user (non root) can NOT establish any port below 1024 
+#so using iptables to forward port 80 requests to port 8080
+iptables -A PREROUTING -t nat -p tcp --dport 80 -j REDIRECT --to-port 8080
+#iptables -A INPUT -i eth2 -p tcp --dport 1521 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+#iptables -A OUTPUT -o eth2 -p tcp --sport 1521 -m conntrack --ctstate ESTABLISHED -j ACCEPT
+
+pdb1 tnsnames.ora
+
+Tablespace SUDS 300G
+Tablespace TEMP 30G
+
+create directory TEST_DIR
+
+#Export application from SUDS, use it to create SUDS user
+
+#Fake SUDS account for testing import only
+create user suds identified by suds default tablespace SUDS;
+grant unlimited tablespace to SUDS;
+grant dba to SUDS;
+
+impdp \
+suds/????@pdb1 \
+directory=TEST_DIR \
+dumpfile=expdp_SUDS_TABLES_240519_01.dmp,expdp_SUDS_TABLES_240519_02.dmp,expdp_SUDS_TABLES_240519_03.dmp,expdp_SUDS_TABLES_240519_04.dmp,expdp_SUDS_TABLES_240519_05.dmp,expdp_SUDS_TABLES_240519_06.dmp
+
