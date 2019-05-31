@@ -1,7 +1,7 @@
 #Oracle DB Listener port is 1521
 #Oracle APEX web port is 8080
 #EPIC servers were provisioned only allow traffics through 22/80/443 ports
-#iptables are enabled for port forwarding from those ports allowed to the actual servicing ports
+#(WORKAROUND)iptables are enabled for port forwarding from those ports allowed to the actual servicing ports
 
 /etc/init.d/iptables start
 #forward traffics from port 80 to port 8080 (web server)
