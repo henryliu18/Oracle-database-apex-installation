@@ -10,11 +10,9 @@ pdb1 tnsnames.ora
 Tablespace SUDS 300G
 Tablespace TEMP 30G
 
-create directory TEST_DIR
+create directory TEST_DIR '/data/sdb1/ora/db001/dumpfile'
 
-#Export application from SUDS, use it to create SUDS user
-
-#Fake SUDS account for testing import only
+#create SUDS account for import
 create user suds identified by suds default tablespace SUDS;
 grant unlimited tablespace to SUDS;
 grant dba to SUDS;
@@ -24,3 +22,24 @@ suds/????@pdb1 \
 directory=TEST_DIR \
 dumpfile=expdp_SUDS_TABLES_240519_01.dmp,expdp_SUDS_TABLES_240519_02.dmp,expdp_SUDS_TABLES_240519_03.dmp,expdp_SUDS_TABLES_240519_04.dmp,expdp_SUDS_TABLES_240519_05.dmp,expdp_SUDS_TABLES_240519_06.dmp
 
+Export SUDS application from production
+
+Import SUDS application to new production
+
+rerun DDLs
+
+"Scheme Type" set to No authentication in Authentication scheme
+
+"Run on Public Pages" set to NO in Security Attributes
+
+"Authorization Scheme" set to No applications authorization required in Security Attributes
+
+#create SSO account for import
+create user sso identified by sso default tablespace SUDS;
+grant unlimited tablespace to SSO;
+grant dba to SSO;
+
+impdp \
+sso/sso@pdb1 \
+directory=TEST_DIR \
+dumpfile=SSO_3005201901.dmp
