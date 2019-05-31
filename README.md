@@ -3,11 +3,12 @@
 CentOS Linux release 7.6.1810 (Core)<br />
 <a href="https://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html">Oracle database 18.3</a><br />
 <a href="https://www.oracle.com/database/technologies/appdev/apex.html">Oracle APEX 19.1</a><br />
-
+<a href="https://www.oracle.com/technetwork/developer-tools/rest-data-services/downloads/index.html">Oracle ORDS 19.1</a><br />
 
 <b>Software zip files location</b><br />
 Oracle database 18.3 is defined in env $ORACLE_SW<br />
 Apex 19c is defined in env $APEX_SW<br />
+ORDS 19c is defined in env $ORDS_SW<br />
 
 <b>Installation (as root)</b><br />
 git clone https://github.com/henryliu18/Oracle-database-apex-installation.git<br />
