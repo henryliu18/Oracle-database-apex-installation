@@ -1,9 +1,13 @@
+#Oracle DB Listener port is 1521
+#Oracle APEX web port is 8080
+#EPIC servers were provisioned only allow traffics through 22/80/443 ports
+#iptables are enabled for port forwarding from those ports allowed to the actual servicing ports
+
 /etc/init.d/iptables start
-#Can not directly access port 8080 on the server, port 80 works.  However oracle user (non root) can NOT establish any port below 1024 
-#so using iptables to forward port 80 requests to port 8080
+#forward traffics from port 80 to port 8080 (web server)
 iptables -A PREROUTING -t nat -p tcp --dport 80 -j REDIRECT --to-port 8080
-#iptables -A INPUT -i eth2 -p tcp --dport 1521 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
-#iptables -A OUTPUT -o eth2 -p tcp --sport 1521 -m conntrack --ctstate ESTABLISHED -j ACCEPT
+#forward traffics from port 443 to port 1521 (DB Listener)
+iptables -A PREROUTING -t nat -p tcp --dport 443 -j REDIRECT --to-port 1521
 
 pdb1 tnsnames.ora
 
